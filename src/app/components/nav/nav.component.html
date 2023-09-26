@@ -1,0 +1,68 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink ="/home">
+          <i class="material-icons">home</i>
+          Home
+      </a>
+
+      <a mat-list-item routerLink ="/atendentes">
+          <i class="material-icons">call</i>
+          Atendente
+      </a>
+
+      <a mat-list-item routerLink ="/">
+          <i class="material-icons">people    </i>
+          Cliente
+      </a>
+
+      <a mat-list-item routerLink ="/">
+          <i class="material-icons">local_shipping</i>
+          Fornecedor
+      </a>
+
+      <a mat-list-item routerLink ="/">
+          <i class="material-icons">work</i>
+          Ordem De Serviço
+      </a>
+
+      <a mat-list-item routerLink ="/">
+          <i class="material-icons">shopping_cart</i>
+          Produto
+      </a>
+
+      <a mat-list-item routerLink ="/">
+          <i class="material-icons">build</i>
+          Serviço
+      </a>
+
+      <a mat-list-item routerLink ="/">
+          <i class="material-icons">engineering</i>
+          Tecnico
+      </a>
+
+      <a mat-list-item routerLink ="/">
+        <i class="material-icons">shop_two</i>
+        Pedido De Compra
+    </a>
+
+      <a mat-list-item routerLink ="/">
+        <i class="material-icons">settings</i>
+        Configurações
+    </a>
+
+    </mat-nav-list>
+    
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <app-header></app-header>
+    <button class="menu" (click)="drawer.toggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>
+

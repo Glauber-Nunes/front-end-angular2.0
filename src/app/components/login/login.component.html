@@ -1,0 +1,25 @@
+<div class="container mat-elevation-z8">
+    <div class="login-imagem">
+      <img mat-card-image src="assets/img/senha.png" alt="Photo of a Shiba Inu">
+      <h4>Digite seu email e senha</h4>
+    </div>
+    <form class="form mat-elevation-z8">
+        <h2>Login Usuario</h2>
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input [formControl]="email" required
+         [(ngModel)]="credencial.email" name="email" matInput placeholder="EX. usuario@gmail.com" value="">
+      </mat-form-field>
+      
+      <mat-form-field class="full-width">
+        <mat-label>Senha</mat-label>
+        <input [formControl]="senha" required
+        [(ngModel)]="credencial.senha" name="senha" type="password" matInput placeholder="EX. 124566" value="">
+      </mat-form-field>
+  
+      <div class="button">
+        <button [disabled]="!validaCampos()" class="mat-elevation-z8" mat-button color="primary">Acessar</button>
+      </div>
+    </form>
+  </div>
+  
