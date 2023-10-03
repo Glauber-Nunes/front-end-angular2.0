@@ -12,17 +12,17 @@
           Atendente
       </a>
 
-      <a mat-list-item routerLink ="/">
+      <a mat-list-item routerLink ="/clientes">
           <i class="material-icons">people    </i>
           Cliente
       </a>
 
-      <a mat-list-item routerLink ="/">
+      <a mat-list-item routerLink ="/fornecedores">
           <i class="material-icons">local_shipping</i>
           Fornecedor
       </a>
 
-      <a mat-list-item routerLink ="/">
+      <a mat-list-item routerLink ="/ordem-servicos">
           <i class="material-icons">work</i>
           Ordem De Serviço
       </a>
@@ -52,12 +52,17 @@
         Configurações
     </a>
 
+    <a mat-list-item (click) ="sair()">
+      <i class="material-icons">exit_to_app</i>
+      Sair
+  </a>
+
     </mat-nav-list>
     
   </mat-drawer>
 
   <div class="sidenav-content">
-    <app-header></app-header>
+   
     <button class="menu" (click)="drawer.toggle()" mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>

@@ -1,10 +1,24 @@
 table {
-    width: 100%;
-    height: 50%;
-  }
+  width: 100%;
+  height: 50%;
+}
 
-  .container{
-    width: 80%;
-    margin: auto;
-  }
-  
+.container{
+  width: 80%;
+  margin: auto;
+}
+
+.mat-form-field{
+  width: 100%;
+}
+
+
+.custom-button {
+  margin: 20px auto; /* Adiciona margem ao redor do botão e alinha-o ao centro horizontalmente */
+  display: block; /* Para centralizar o botão horizontalmente no container */
+  margin-left: 115px;
+}
+
+
+
+  /* Estilize a div de telefone */

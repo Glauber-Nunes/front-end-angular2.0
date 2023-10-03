@@ -18,7 +18,7 @@
       </mat-form-field>
   
       <div class="button">
-        <button [disabled]="!validaCampos()" class="mat-elevation-z8" mat-button color="primary">Acessar</button>
+        <button (click)="logar()" [disabled]="!validaCampos()" class="mat-elevation-z8" mat-button color="primary">Acessar</button>
       </div>
     </form>
   </div>

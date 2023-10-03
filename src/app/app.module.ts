@@ -21,14 +21,30 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { NavComponent } from './components/nav/nav.component';
-import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
+import { MatProgressBar, MatProgressBarModule } from '@angular/material/progress-bar';
+import { NavComponent } from './components/templates/nav/nav.component';
+import { HomeComponent } from './components/templates/home/home.component';
+import { HeaderComponent } from './components/templates/header/header.component';
 import { AtendenteListComponent } from './components/atendente/atendente-list/atendente-list.component';
 import { AtendenteSaveComponent } from './components/atendente/atendente-save/atendente-save.component';
-import { LoginComponent } from './components/login/login.component';
-
+import { LoginComponent } from './components/templates/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptorProvider } from './interceptor/auth.interceptor';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+import { ClienteSaveComponent } from './components/cliente/cliente-save/cliente-save.component';
+import { AtendenteViewComponent } from './components/atendente/atendente-view/atendente-view.component';
+import { ClienteViewComponent } from './components/cliente/cliente-view/cliente-view.component';
+import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
+import { AtedenteUpdateComponent } from './components/atendente/atedente-update/atedente-update.component';
+import { FornecedorListComponent } from './components/fornecedor/fornecedor-list/fornecedor-list.component';
+import { FornecedorSaveComponent } from './components/fornecedor/fornecedor-save/fornecedor-save.component';
+import { FornecedorViewComponent } from './components/fornecedor/fornecedor-view/fornecedor-view.component';
+import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
+import { OrdemListComponent } from './components/ordemServico/ordem-list/ordem-list.component';
+import { OrdemViewComponent } from './components/ordemServico/ordem-view/ordem-view.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { OrdemSaveComponent } from './components/ordemServico/ordem-save/ordem-save.component';
+import { FormControl } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +53,20 @@ import { LoginComponent } from './components/login/login.component';
     HeaderComponent,
     AtendenteListComponent,
     AtendenteSaveComponent,
-    LoginComponent
+    LoginComponent,
+    ClienteListComponent,
+    ClienteSaveComponent,
+    AtendenteViewComponent,
+    ClienteViewComponent,
+    ClienteUpdateComponent,
+    AtedenteUpdateComponent,
+    FornecedorListComponent,
+    FornecedorSaveComponent,
+    FornecedorViewComponent,
+    FornecedorUpdateComponent,
+    OrdemListComponent,
+    OrdemViewComponent,
+    OrdemSaveComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +94,18 @@ import { LoginComponent } from './components/login/login.component';
     MatSnackBarModule,
     MatMenuModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
-  ],
-  providers: [],
+    MatProgressBarModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut:4000,
+      closeButton:true,
+      progressBar:true
+    }
+    )
+  ], 
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,116 @@
+<div class="container">
+
+<form class="form">
+
+    <h2>Ordem De Serviço</h2>
+ 
+
+    <!-- ATENDENTE -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Atendente</mat-label>
+      <mat-select name="atendente" [(ngModel)]= "ordem.atendente">
+        <mat-option *ngFor="let atendente of atendentes" [value]="atendente.id">
+          {{ atendente.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Situação</mat-label>
+      <mat-select name="situacaoOrdem" [(ngModel)]= "ordem.situacaoOrdem">
+        <mat-option *ngFor="let situacaoOrdem of situacoes" [value]="situacaoOrdem.id">
+          {{ situacaoOrdem.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Cliente</mat-label>
+      <mat-select name="cliente" [(ngModel)]= "ordem.cliente">
+        <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+          {{ cliente.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Tecnico</mat-label>
+      <mat-icon matSuffix>engineering</mat-icon>
+      <mat-select name="tecnico" [(ngModel)]= "ordem.tecnico">
+        <mat-option *ngFor="let tecnico of tecnicos" [value]="tecnico.id">
+          {{ tecnico.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h3>Serviços</h3>
+    <!-- Selecione os Serviços -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Selecione os Serviços</mat-label>
+      <mat-select name="selectedServicoId" [(ngModel)]="selectedServicoId" multiple (selectionChange)="onServicoSelectionChange($event)">
+        <mat-option *ngFor="let servico of servs" [value]="servico.id">
+          {{ servico.descricao }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  <!-- Exibir campos de quantidade para serviços selecionados -->
+  <div *ngFor="let servicoSelecionado of servicosSelecionados; let i = index" class="service-item">
+    <p>{{ servicoSelecionado.servico.descricao}}</p>
+    <mat-form-field class="quantity-field">
+      <mat-label>Qtd</mat-label>
+      <input matInput type="number" [(ngModel)]="servicoSelecionado.quantidade" />
+    </mat-form-field>
+  </div>
+
+   <!-- Selecione os Produtos -->
+   <h3>Produtos</h3>
+   <mat-form-field class="full-width" appearance="outline">
+     <mat-label>Selecione os Produtos</mat-label>
+     <mat-select name="selectedProdutoId" [(ngModel)]="selectedProdutoId" multiple (selectionChange)="onProdutoSelectionChange($event)">
+       <mat-option *ngFor="let produto of prods" [value]="produto.id">
+         {{ produto.descricao }}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+    
+   <!-- Exibir campos de quantidade para produtos selecionados -->
+   <div *ngFor="let produtoSelecionado of produtosSelecionados; let i = index" class="product-item">
+    <p>{{ produtoSelecionado.produto.descricao }}</p>
+    <mat-form-field class="quantity-field">
+      <mat-label>Qtd</mat-label>
+      <input matInput type="number" [(ngModel)]="produtoSelecionado.quantidade" />
+    </mat-form-field>
+  </div>
+
+
+    <!-- FORNECEDOR -->
+     <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Fornecedor</mat-label>
+      <mat-select name="fornecedor" [(ngModel)]= "ordem.fornecedor">
+        <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+          {{ fornecedor.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Observações da OS</mat-label>
+      <textarea class="campos-textos" [(ngModel)]="ordem.observacoes" name="observacoes" matInput placeholder=""></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Descrição</mat-label>
+      <textarea class="campos-textos" [(ngModel)]="ordem.descricao" name="descricao" matInput placeholder=""></textarea>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button type="submit" (click)="save()" mat-raised-button color="primary">Salvar</button>
+      <button  mat-raised-button color="primary">Cancelar</button>
+  </div>
+
+</form>
+
+
+</div>

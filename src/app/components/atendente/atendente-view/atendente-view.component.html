@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>Dados Do Atendente</mat-card-title>
+    <div class="info-container">
+      <div class="info-item">
+        <p>ID: {{ atendente.id }}</p>
+      </div>
+  
+      <div class="info-item">
+        <p>Nome: {{ atendente.nome }}</p>
+      </div>
+  
+      <div class="info-item">
+        <p>CPF: {{ atendente.cpf }}</p>
+      </div>
+    </div>
+  </mat-card>
+
+  <button (click)="fechar()" class="custom-button" mat-raised-button color="">Fechar</button>
+  

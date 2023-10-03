@@ -1,0 +1,7 @@
+/* Estilize o span do nome do usuário para alinhá-lo à direita */
+.mat-toolbar span.username {
+    flex-grow: 1; /* Faz com que o span ocupe todo o espaço disponível à direita */
+    text-align: right; /* Alinha o texto à direita */
+    margin-right: 20px; /* Adiciona algum espaçamento à direita (ajuste conforme necessário) */
+  }
+  

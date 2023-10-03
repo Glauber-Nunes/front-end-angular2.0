@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+    height: 50%;
+  }
+
+  .container{
+    width: 80%;
+    margin: auto;
+  }
+
+  .mat-form-field{
+    width: 100%;
+  }
+
+
+  .custom-button {
+    margin: 20px auto; /* Adiciona margem ao redor do botão e alinha-o ao centro horizontalmente */
+    display: block; /* Para centralizar o botão horizontalmente no container */
+    margin-left: 115px;
+  }
+  
+  
+  .button-container {
+    display: flex; /* Use o modelo flexível para alinhar os botões lado a lado */
+    gap: 80px; /* Adicione um espaço de 10px entre os botões (ajuste conforme necessário) */
+  }
+  
+  .button-container a {
+    text-decoration: none; /* Remova a decoração de texto para os links */
+  }
+  
+

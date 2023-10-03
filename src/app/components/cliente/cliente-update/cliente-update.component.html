@@ -1,0 +1,97 @@
+<div class="container mat-elevation-z8">
+
+    <h2>Atualização Cliente</h2>
+    <form class="form">
+  
+      <!-- INPUT NOME -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input required="true" matInput  [(ngModel)]="cliente.nome" name="nome">
+      </mat-form-field>
+  
+      <!-- INPUT CPF/CNPJ -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>CPF/CNPJ</mat-label>
+        <input required="true" matInput  [(ngModel)]="cliente.cpf" name="cpf">
+      </mat-form-field>
+  
+      <!-- INPUT RG -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>RG</mat-label>
+        <input matInput  [(ngModel)]="cliente.rg" name="rg">
+      </mat-form-field>
+  
+      <!-- INPUT EMAIL -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input required="true" matInput  [(ngModel)]="cliente.email" name="email">
+      </mat-form-field>
+  
+      <!-- Seção Telefone -->
+      <div class="section-title">Telefone</div>
+      <div class="phone-inputs">
+        <mat-form-field appearance="outline">
+          <mat-label>DD:</mat-label>
+          <input required="true" matInput [(ngModel)]="cliente.telefone.dd" name="dd"  maxlength="2" max="2">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Número:</mat-label>
+          <input required="true" matInput [(ngModel)]="cliente.telefone.numero" name="numero"  maxlength="11" max="11">
+        </mat-form-field>
+      </div>
+  
+      <!-- Seção Endereço -->
+      <div class="section-title">Dados de endereço</div>
+  
+      <div class="address-inputs">
+        <mat-form-field appearance="outline">
+          <mat-label>Rua:</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.rua" name="rua">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Número:</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.numero" name="numero">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Complemento:</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.complemento" name="complemento">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Bairro:</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.bairro" name="bairro">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Cidade:</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.cidade" name="cidade">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Estado</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.estado" name="estado">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Cep:</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.cep" name="cep">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>País:</mat-label>
+          <input matInput [(ngModel)]="cliente.endereco.pais" name="pais">
+        </mat-form-field>
+      </div>
+  
+    </form>
+
+    <div class="button-container">
+        <button (click)="update()" mat-raised-button color="primary">Atualizar</button>
+        <button (click)=" cancelar()" mat-raised-button color="primary">Cancelar</button>
+    </div>
+
+  </div>
+  

@@ -1,0 +1,93 @@
+
+<div class="container">
+  
+    <mat-form-field>
+      <mat-label>Pesquisa Ordem</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+
+    <mat-radio-group color="primary" >
+      <mat-radio-button (click)=" orderByStatus(1)" value="1" >ABERTA</mat-radio-button>
+      <mat-radio-button (click)=" orderByStatus(2)" value="2" >ENCERRADA</mat-radio-button>
+    </mat-radio-group>
+  
+  <section class="example-container mat-elevation-z8" tabindex="0">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Numero OS </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+     
+       <ng-container matColumnDef="cliente">
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.cliente.nome}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell class="fixed-column" *matHeaderCellDef> Status </th>
+        <td mat-cell class="fixed-column" *matCellDef="let element" [ngClass]="getStatusColor(element.statusOrdemServico?.nome)">
+          {{element.statusOrdemServico.nome}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="visualizar">
+        <th mat-header-cell *matHeaderCellDef> Visualizar </th>
+        <td mat-cell *matCellDef="let element">
+       
+          <a [routerLink]="['/ordem-servicos', element.id]">
+            <button mat-icon-button color="primary">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </a>
+        </ng-container>
+  
+        <ng-container matColumnDef="editar">
+          <th mat-header-cell *matHeaderCellDef> Editar </th>
+          <td mat-cell *matCellDef="let element">
+         
+            <a [routerLink]="['/', element.id]">
+              <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </a>
+          </ng-container>
+  
+          <ng-container matColumnDef="excluir">
+            <th mat-header-cell *matHeaderCellDef> Excluir </th>
+            <td mat-cell *matCellDef="let element">
+           
+              <a [routerLink]="['/', element.id]">
+                <button mat-icon-button color="primary">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </a>
+            </ng-container>
+  
+              <ng-container matColumnDef="finalizar">
+                <th mat-header-cell *matHeaderCellDef> Finalizar OS </th>
+                <td mat-cell *matCellDef="let element">
+               
+                  <a [routerLink]="['/', ]">
+                    <button mat-icon-button color="primary">
+                      <mat-icon>done</mat-icon>
+                    </button>
+                  </a>
+                </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+
+  <div class="button-container">
+    <a  [routerLink]="['/saveOrdemServico']">
+      <button mat-icon-button color="primary">
+        <mat-icon>add</mat-icon> Nova OS
+      </button>
+    </a>
+  </div>
+  </div>

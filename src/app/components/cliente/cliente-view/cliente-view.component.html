@@ -1,0 +1,95 @@
+<div class="container mat-elevation-z8">
+
+  <h2>Cliente</h2>
+  <form class="form">
+
+    <!-- INPUT NOME -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black" >Nome</mat-label>
+      <input disabled="true" matInput value="{{cliente.nome}}" class="color-disabled-black">
+    </mat-form-field>
+
+    <!-- INPUT CPF/CNPJ -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">CPF/CNPJ</mat-label>
+      <input disabled="true" matInput value="{{cliente.cpf}}"class="color-disabled-black">
+    </mat-form-field>
+
+    <!-- INPUT RG -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">RG</mat-label>
+      <input disabled="true" matInput value="{{cliente.rg}}" class="color-disabled-black">
+    </mat-form-field>
+
+    <!-- INPUT EMAIL -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">Email</mat-label>
+      <input class="color-disabled-black" disabled="true" matInput value="{{cliente.email}}">
+    </mat-form-field>
+
+    <!-- Seção Telefone -->
+    <div class="section-title">Telefone</div>
+    <div class="phone-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">DD:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.telefone.dd}}" matInput [(ngModel)]="cliente.telefone.dd" name="dd"  maxlength="2" max="2">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Número:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.telefone.numero}}" disabled="true" matInput [(ngModel)]="cliente.telefone.numero" name="numero"  maxlength="11" max="11">
+      </mat-form-field>
+    </div>
+
+    <!-- Seção Endereço -->
+    <div class="section-title">Dados de endereço</div>
+
+    <div class="address-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Rua:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.rua}}" matInput [(ngModel)]="cliente.endereco.rua" name="rua">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Número:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.numero}}" matInput [(ngModel)]="cliente.endereco.numero" name="numero">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Complemento:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.complemento}}" matInput [(ngModel)]="cliente.endereco.complemento" name="complemento">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Bairro:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.bairro}}" matInput [(ngModel)]="cliente.endereco.bairro" name="bairro">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Cidade:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.cidade}}" matInput [(ngModel)]="cliente.endereco.cidade" name="cidade">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Estado</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{cliente.endereco.estado}" matInput [(ngModel)]="cliente.endereco.estado" name="estado">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">Cep:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.cep}}" matInput [(ngModel)]="cliente.endereco.cep" name="cep">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="color-disabled-black">País:</mat-label>
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.pais}}" matInput [(ngModel)]="cliente.endereco.pais" name="pais">
+      </mat-form-field>
+    </div>
+
+  </form>
+
+  <div class="button-container">
+    <button (click)="voltar()" mat-raised-button color="primary">Voltar</button>
+</div>
+
+</div>
