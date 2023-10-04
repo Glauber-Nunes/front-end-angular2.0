@@ -1,10 +1,9 @@
 <div class="container">
 
-<form class="form">
+<form class="form" name="myForm">
 
     <h2>Ordem De Serviço</h2>
- 
-
+    
     <!-- ATENDENTE -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Atendente</mat-label>
@@ -55,7 +54,7 @@
     </mat-form-field>
     
   <!-- Exibir campos de quantidade para serviços selecionados -->
-  <div *ngFor="let servicoSelecionado of servicosSelecionados; let i = index" class="service-item">
+  <div *ngFor="let servicoSelecionado of ordem.servicos; let i = index" class="service-item">
     <p>{{ servicoSelecionado.servico.descricao}}</p>
     <mat-form-field class="quantity-field">
       <mat-label>Qtd</mat-label>
@@ -75,7 +74,7 @@
    </mat-form-field>
     
    <!-- Exibir campos de quantidade para produtos selecionados -->
-   <div *ngFor="let produtoSelecionado of produtosSelecionados; let i = index" class="product-item">
+   <div  *ngFor="let produtoSelecionado of ordem.produtos; let i = index" class="product-item">
     <p>{{ produtoSelecionado.produto.descricao }}</p>
     <mat-form-field class="quantity-field">
       <mat-label>Qtd</mat-label>

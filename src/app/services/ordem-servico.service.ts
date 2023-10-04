@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { OrdemServico } from '../model/OrdemServico';
 import { Observable } from 'rxjs';
@@ -21,6 +21,7 @@ export class OrdemServicoService {
 
   save(os:OrdemServico):Observable<OrdemServico>{
     const url =(`${API_CONFIG.baseUrlApi}/ordem_servicos`);
-    return this.http.post<OrdemServico>(url,os);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<OrdemServico>(url, JSON.stringify(os), { headers: headers });
   }
 }

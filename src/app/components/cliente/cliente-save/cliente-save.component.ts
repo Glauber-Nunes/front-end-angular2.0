@@ -11,8 +11,6 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class ClienteSaveComponent implements OnInit {
 
-
-
   cliente: Cliente = {
     id: null,
     nome: '',

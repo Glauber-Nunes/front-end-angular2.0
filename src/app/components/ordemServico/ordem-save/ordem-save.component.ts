@@ -90,7 +90,7 @@ export class OrdemSaveComponent implements OnInit {
     const selectedServicoIds = event.value;
   
     // Limpe a lista de serviços selecionados
-    this.servicosSelecionados = [];
+   // this.servicosSelecionados = [];
   
     if (selectedServicoIds && this.servs) {
       for (const servicoId of selectedServicoIds) {
@@ -101,14 +101,15 @@ export class OrdemSaveComponent implements OnInit {
           // Certifique-se de que o serviço foi encontrado
           // Inicialize a quantidade como 1 por padrão
           const novoServico: ServicoOrdemForm = {
-            servico: servico,
+            servico: servico.id,
             quantidade: 1,
             preco: servico.preco ? servico.preco : 0,
             subTotalServico: 0,
           };
   
           // Adicione o novo serviço à lista de serviços selecionados
-          this.servicosSelecionados.push(novoServico);
+          this.ordem.servicos.push(novoServico);
+        
         }
       }
     }
@@ -120,7 +121,7 @@ export class OrdemSaveComponent implements OnInit {
     const selectedProdutoIds = event.value;
 
      // Inicializa a lista de produtos selecionados como vazia
-    this.produtosSelecionados = [];
+   // this.produtosSelecionados = [];
 
      // Verifica se há produtos selecionados
     if(selectedProdutoIds){
@@ -131,14 +132,15 @@ export class OrdemSaveComponent implements OnInit {
        
           // Inicializa um novo objeto ProdutoOrdem com o produto encontrado e outras propriedades
         const novoProduto: ProdutoOrdem = {
-          produto: produto,
+          produto: produto.id,
           quantidade: 1,
           preco :produto.preco,
           subTotalProduto:0,
          
         };
         // Adicione o novo serviço à lista de serviços selecionados
-        this.produtosSelecionados.push(novoProduto);
+        this.ordem.produtos.push(novoProduto);
+     
       }
     }
   }
@@ -189,10 +191,8 @@ export class OrdemSaveComponent implements OnInit {
 
  
   save(): void {
-  
-    // Certifique-se de que ordem.servicos e ordem.produtos sejam arrays vazios por padrão
-   
-  
+    
+    console.log('Dados a serem enviados:', this.ordem);
     this.service.save(this.ordem).subscribe(
       (resposta) => {
         this.router.navigate(['/ordem-servicos'])
@@ -209,5 +209,8 @@ export class OrdemSaveComponent implements OnInit {
       }
     );
   }
+
+
+
   
 }

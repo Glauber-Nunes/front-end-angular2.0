@@ -10,5 +10,6 @@ export interface ServicoOrdem {
   quantidade: number;
   preco: number;
   subTotalServico: number;
-  }
+
+}
   

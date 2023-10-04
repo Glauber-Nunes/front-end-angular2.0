@@ -1,3 +1,4 @@
+import { Cliente } from 'src/app/model/Cliente';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -18,6 +19,33 @@ export class OrdemListComponent implements OnInit {
 
   displayedColumns: string[] = ['id','cliente','status','visualizar','editar','excluir','finalizar'];
 
+
+  ordem: OrdemServico = {
+    id:null,
+    atendente: null,
+    situacaoOrdem:null,
+    
+    cliente:{
+      id: 0,
+      nome:'',
+      cpf:'',
+      rg:'',
+      email:'',
+      telefone:'',
+      endereco:''
+    },
+    descricao:null,
+    tecnico: null,
+    dataDoServico: null ,// Modificação feita aqui,
+    dataFechamento: null,
+    servicos:[],
+    produtos: [],
+    fornecedor: null,
+    observacoes:'',
+    statusOrdemServico : null,
+    valorTotalOrdem:null,
+  };
+
   ngOnInit(): void {
     this.findAll();
   }
@@ -25,7 +53,9 @@ export class OrdemListComponent implements OnInit {
   dataSource = new MatTableDataSource<OrdemServico>(this.ELEMENT_DATA);
 
   findAll(){
+    
     this.Service.findAll().subscribe(resposta =>{
+      console.log(resposta); // Log the response to the console
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<OrdemServico>(resposta);
       this.dataSource.paginator = this.paginator;

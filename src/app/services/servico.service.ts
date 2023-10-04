@@ -14,4 +14,8 @@ export class ServicoService {
   findAll() : Observable<Servico[]> {
     return this.http.get<Servico[]>(`${API_CONFIG.baseUrlApi}/servicos`)
   }
+
+  findById(id:any):Observable<Servico>{
+    return this.http.get<Servico>(`${API_CONFIG.baseUrlApi}/servicos/`+id)
+  }
 }

@@ -11,6 +11,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class ClienteListComponent implements OnInit {
 
+
   ELEMENT_DATA : Cliente[] = [];
 
   constructor(private clienteService:ClienteService) { }

@@ -15,7 +15,15 @@ export interface OrdemServico{
     id?:number;
     atendente:number;
     situacaoOrdem:number;
-    cliente: number ;
+    cliente: {
+        id: 0,
+        nome:'',
+        cpf:'',
+        rg:'',
+        email:'',
+        telefone:'',
+        endereco:''
+    } ;
     descricao:string;
     tecnico:number;
     dataDoServico:Date | null; // Modificação feita aqui,

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdemServico } from 'src/app/model/OrdemServico';
-import { AtendenteService } from 'src/app/services/atendente.service';
-import { ClienteService } from 'src/app/services/cliente.service';
 import { OrdemServicoService } from 'src/app/services/ordem-servico.service';   
 
 @Component({
@@ -19,7 +17,16 @@ export class OrdemViewComponent implements OnInit {
     id:null,
     atendente: null,
     situacaoOrdem:null,
-    cliente:null,
+    
+    cliente:{
+      id: 0,
+      nome:'',
+      cpf:'',
+      rg:'',
+      email:'',
+      telefone:'',
+      endereco:''
+    },
     descricao:null,
     tecnico: null,
     dataDoServico: null ,// Modificação feita aqui,
