@@ -16,7 +16,7 @@ export class ClienteListComponent implements OnInit {
 
   constructor(private clienteService:ClienteService) { }
 
-  displayedColumns: string[] = ['nome', 'cpf','visualizar','editar','excluir'];
+  displayedColumns: string[] = ['nome', 'cpf','visualizar','editar'];
 
   ngOnInit(): void {
     this.findAll();

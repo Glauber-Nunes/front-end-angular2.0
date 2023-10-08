@@ -6,13 +6,19 @@
       <!-- INPUT NOME -->
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Nome</mat-label>
-        <input required="true" matInput  [(ngModel)]="cliente.nome" name="nome">
+        <input [formControl]="nome" required="true" matInput  [(ngModel)]="cliente.nome" name="nome">
+        <mat-error *ngIf="formulario.get('nome').hasError('required')">
+          nome obrigatório.
+        </mat-error>
       </mat-form-field>
   
       <!-- INPUT CPF/CNPJ -->
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>CPF/CNPJ</mat-label>
-        <input required="true" matInput  [(ngModel)]="cliente.cpf" name="cpf">
+        <input [formControl]="cpf" required="true" matInput  [(ngModel)]="cliente.cpf" name="cpf">
+        <mat-error *ngIf="formulario.get('nome').hasError('required')">
+          cpf obrigatório.
+        </mat-error>
       </mat-form-field>
   
       <!-- INPUT RG -->
@@ -24,20 +30,23 @@
       <!-- INPUT EMAIL -->
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Email</mat-label>
-        <input required="true" matInput  [(ngModel)]="cliente.email" name="email">
+        <input [formControl]="email" required="true" matInput  [(ngModel)]="cliente.email" name="email">
+        <mat-error *ngIf="formulario.get('nome').hasError('required')">
+          email obrigatório.
+        </mat-error>
       </mat-form-field>
   
       <!-- Seção Telefone -->
-      <div class="section-title">Telefone</div>
+      <div class="section-title">Dados de Telefone</div>
       <div class="phone-inputs">
         <mat-form-field appearance="outline">
           <mat-label>DD:</mat-label>
-          <input required="true" matInput [(ngModel)]="cliente.telefone.dd" name="dd"  maxlength="2" max="2">
+          <input matInput [(ngModel)]="cliente.telefone.dd" name="dd"  maxlength="2" max="2">
         </mat-form-field>
   
         <mat-form-field appearance="outline">
           <mat-label>Número:</mat-label>
-          <input required="true" matInput [(ngModel)]="cliente.telefone.numero" name="numero"  maxlength="11" max="11">
+          <input matInput [(ngModel)]="cliente.telefone.numero" name="numero"  maxlength="11" max="11">
         </mat-form-field>
       </div>
   
@@ -89,7 +98,7 @@
     </form>
 
     <div class="button-container">
-        <button (click)="save()" mat-raised-button color="primary">Salvar</button>
+        <button [disabled]="!validaCampos()" (click)="save()" mat-raised-button color="primary">Salvar</button>
         <button (click)="cancelar()" mat-raised-button color="primary">Cancelar</button>
     </div>
 

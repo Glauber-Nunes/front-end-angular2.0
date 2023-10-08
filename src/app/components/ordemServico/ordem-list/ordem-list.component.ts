@@ -4,6 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { OrdemServico } from 'src/app/model/OrdemServico';
 import { OrdemServicoService } from 'src/app/services/ordem-servico.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ordem-list',
@@ -12,19 +14,12 @@ import { OrdemServicoService } from 'src/app/services/ordem-servico.service';
 })
 export class OrdemListComponent implements OnInit {
 
-  ELEMENT_DATA : OrdemServico[] = [];
-  FILTERED_DATA : OrdemServico[] = [];
-
-  constructor(private Service:OrdemServicoService) { }
-
-  displayedColumns: string[] = ['id','cliente','status','visualizar','editar','excluir','finalizar'];
-
+  id_ordem =''
 
   ordem: OrdemServico = {
     id:null,
     atendente: null,
     situacaoOrdem:null,
-    
     cliente:{
       id: 0,
       nome:'',
@@ -35,26 +30,35 @@ export class OrdemListComponent implements OnInit {
       endereco:''
     },
     descricao:null,
-    tecnico: null,
-    dataDoServico: null ,// Modificação feita aqui,
+    tecnico:null,
+    dataDoServico:null ,
     dataFechamento: null,
-    servicos:[],
+    servicos: [] ,
     produtos: [],
     fornecedor: null,
-    observacoes:'',
+    observacoes:null,
     statusOrdemServico : null,
     valorTotalOrdem:null,
   };
 
+  ELEMENT_DATA : OrdemServico[] = [];
+  FILTERED_DATA : OrdemServico[] = [];
+
+  constructor(private Service:OrdemServicoService,
+    private router:Router,private toast :ToastrService,private route:ActivatedRoute) { }
+
+  displayedColumns: string[] = ['id','cliente','status','visualizar','editar','excluir'];
+
   ngOnInit(): void {
+    this.id_ordem = this.route.snapshot.paramMap.get('id')!
     this.findAll();
+   
   }
 
   dataSource = new MatTableDataSource<OrdemServico>(this.ELEMENT_DATA);
 
   findAll(){
-    
-    this.Service.findAll().subscribe(resposta =>{
+      this.Service.findAll().subscribe(resposta =>{
       console.log(resposta); // Log the response to the console
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<OrdemServico>(resposta);
@@ -82,12 +86,11 @@ export class OrdemListComponent implements OnInit {
     return ''; // Retorna uma string vazia caso não haja correspondência
   }
 
-
   //
   orderByStatus(status: any): void {
     let list: OrdemServico[] = [];
     this.ELEMENT_DATA.forEach(element => {
-      if (element.statusOrdemServico && element.statusOrdemServico === status) {
+      if (element.statusOrdemServico.id && element.statusOrdemServico.id === status) {
         list.push(element);
       }
     });
@@ -95,6 +98,17 @@ export class OrdemListComponent implements OnInit {
     this.dataSource = new MatTableDataSource<OrdemServico>(this.FILTERED_DATA);
     this.dataSource.paginator = this.paginator;
   }
-  
 
+  finalizaServico():void{
+    this.Service.finalizaServico(this.ordem).subscribe((resposta=>{
+    this.router.navigate(['/ordem-servicos']);
+    this.toast.info('OS Salvo Com Sucesso!');
+    }))
+  }
+
+  findById():void{
+    this.Service.findById(this.id_ordem).subscribe((resposta=>{
+      this.ordem = resposta;
+    }))
+  }
 }

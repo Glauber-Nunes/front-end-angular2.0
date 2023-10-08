@@ -3,7 +3,6 @@ import { Cliente } from "./Cliente";
 import { Fornecedor } from "./Fornecedor";
 import { Produto } from "./Produto";
 import { Servico } from "./Servico";
-import { ServicoOrdemForm } from "./ServicoOrdemForm";
 import { SituacaoOrdem } from "./SituacaoOrdem";
 import { statusOrdemServico } from "./StatusOrdemServico";
 import { Tecnico } from "./Tecnico";
@@ -13,8 +12,15 @@ import { ServicoOrdem } from "./composicoes.model/ServicoOrdem";
 export interface OrdemServico{
 
     id?:number;
-    atendente:number;
-    situacaoOrdem:number;
+    atendente:{
+        id:0,
+        nome:''
+        cpf:''
+    };
+    situacaoOrdem:{
+        id:0,
+        nome:''
+    };
     cliente: {
         id: 0,
         nome:'',
@@ -25,13 +31,20 @@ export interface OrdemServico{
         endereco:''
     } ;
     descricao:string;
-    tecnico:number;
+    tecnico:{
+        nome:''
+    };
     dataDoServico:Date | null; // Modificação feita aqui,
     dataFechamento:Date | null;
     servicos:ServicoOrdem[];
     produtos:ProdutoOrdem[];
-    fornecedor:number;
+    fornecedor:{
+        nome:''
+    };
     observacoes:string;
-    statusOrdemServico:number;
+    statusOrdemServico:{
+        id:0,
+        nome:''
+    };
     valorTotalOrdem:number;
 }

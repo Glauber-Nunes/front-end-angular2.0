@@ -37,7 +37,8 @@ const routes: Routes = [
       {path:'fornecedores/:id',component:FornecedorViewComponent},
       {path:'ordem-servicos',component:OrdemListComponent},
       {path:'ordem-servicos/:id',component:OrdemViewComponent},
-      {path:'saveOrdemServico',component:OrdemSaveComponent}
+      {path:'saveOrdemServico',component:OrdemSaveComponent},
+      {path: 'finalizarServico/:id',component:OrdemListComponent}
     ]
   }
 

@@ -1,0 +1,85 @@
+<div class="container mat-elevation-z8">
+
+    <h2>Ordem De Serviço, Numero: {{ordem.id}}</h2>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black" >Data Entrada:</mat-label>
+      <input disabled matInput [value]="ordem.dataDoServico | date:'dd/MM/yyyy HH:mm'" class="color-disabled-black">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black" >Data Encerramento:</mat-label>
+      <input disabled matInput [value]="ordem.dataFechamento | date:'dd/MM/yyyy HH:mm'" class="color-disabled-black">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">Status da OS</mat-label>
+      <input disabled="true" matInput value="{{ordem.statusOrdemServico.nome}}"class="color-disabled-black">
+    </mat-form-field>
+
+    <form class="form">
+  
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black" >Atendente</mat-label>
+        <input disabled="true" matInput value="{{ordem.atendente.nome}}" class="color-disabled-black">
+      </mat-form-field>
+  
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black">Situação</mat-label>
+        <input disabled="true" matInput value="{{ordem.situacaoOrdem.nome}}"class="color-disabled-black">
+      </mat-form-field>
+  
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black">Cliente</mat-label>
+        <input disabled="true" matInput value="{{ordem.cliente.nome}}"class="color-disabled-black">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black">Tecnico</mat-label>
+        <input disabled="true" matInput value="{{ordem.tecnico.nome}}"class="color-disabled-black">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black">Ver Serviços</mat-label>
+        <mat-select [(value)]="servs" multiple>
+          <mat-option disabled="true" *ngFor="let servico of servs" [value]="servico">
+            {{ servico.descricao }} - {{ servico.preco | currency:'BRL':'symbol':'1.2-2' }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black">Ver Produtos</mat-label>
+        <mat-select [(value)]="prods" multiple>
+          <mat-option disabled="true" *ngFor="let produto of prods" [value]="produto">
+            {{ produto.descricao }} - {{ produto.preco | currency:'BRL':'symbol':'1.2-2' }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black">Fornecedor</mat-label>
+        <input disabled="true" matInput value="{{ordem.fornecedor.nome}}"class="color-disabled-black">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black" >Descrição</mat-label>
+        <textarea disabled="true" class="campos-textos color-disabled-black" [(ngModel)]="ordem.descricao" name="descricao" matInput placeholder=""></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label class="color-disabled-black" >Observações</mat-label>
+        <textarea disabled="true" class="campos-textos color-disabled-black" [(ngModel)]="ordem.observacoes" name="observacoes" matInput placeholder=""></textarea>
+      </mat-form-field>
+
+    </form>
+
+    <h2 class="color-disabled-black" >Total da Ordem de Serviço: {{ ordem.valorTotalOrdem | currency:'BRL':'symbol':'1.2-2' }}</h2>
+  
+    <div class="button-container">
+      <button (click)="voltar()" mat-raised-button color="primary">Voltar</button>
+      <button (click)="voltar()" mat-raised-button color="primary">Finalizar OS</button>
+    </div>
+  
+  </div>
+  

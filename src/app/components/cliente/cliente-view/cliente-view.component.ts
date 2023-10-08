@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cliente } from 'src/app/model/Cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-cliente-view',
@@ -31,12 +34,18 @@ export class ClienteViewComponent implements OnInit {
       estado:'',
       cep:'',
       pais:'',
-    }
+    },
+
+    dataCadastro:null
   };
 
 
   constructor(private route:ActivatedRoute,private router: Router,
-    private clienteService:ClienteService) { }
+    private clienteService:ClienteService,private toast:ToastrService,
+    ) { }
+
+
+    
 
   ngOnInit(): void {
     this.id_cliente = this.route.snapshot.paramMap.get('id')!
@@ -48,7 +57,7 @@ export class ClienteViewComponent implements OnInit {
   }
 
   findById():void{
-    this.clienteService.findById(this.id_cliente).subscribe((resposta=>{
+      this.clienteService.findById(this.id_cliente).subscribe((resposta=>{
       this.cliente = resposta;
     }))
   }
@@ -57,4 +66,15 @@ export class ClienteViewComponent implements OnInit {
     this.router.navigate(['clientes'])
   }
 
-}
+  delete():void{
+    this.clienteService.delete(this.id_cliente).subscribe((resposta=>{
+      this.toast.info('Cliente Excluido Com Sucesso!');
+      this.router.navigate(['clientes'])
+    }))}
+
+    
+  }
+
+  
+
+

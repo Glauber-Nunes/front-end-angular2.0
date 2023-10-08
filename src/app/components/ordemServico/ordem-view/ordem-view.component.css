@@ -1,38 +1,48 @@
-/* Estilos para o mat-card */
-mat-card {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilos para o título do mat-card */
-  mat-card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Estilos para o contêiner dos botões */
-  .button-container {
-    display: flex;
-    justify-content: space-between; /* Cria espaço entre os botões */
-    margin-top: 13px;
-    width: 200px;
-    margin-left: 108px;
-  }
+/* cliente-save.component.css */
 
-  .custom-button {
-    width: 45%; /* Defina a largura desejada para os botões */
-  }
-  
-  
-  
- .text-negrito {
-  font-weight: bold;
+.container {
+  width: 85%;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
 }
-/* Seu arquivo de estilo CSS */
 
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Espaço entre os campos */
+}
+
+.full-width {
+  flex: 1; /* Ocupa o espaço disponível */
+}
+
+.section-title {
+  font-size: 18px;
+  margin-top: 16px;
+  width: 100%; /* Garante que a largura da seção seja 100% */
+}
+
+.button-container {
+  display: flex; /* Use o modelo flexível para alinhar os botões lado a lado */
+  gap: 10px; /* Adicione um espaço de 10px entre os botões (ajuste conforme necessário) */
+}
+
+.button-container a {
+  text-decoration: none; /* Remova a decoração de texto para os links */
+}
+
+.color-disabled-black {
+  color: black;
+}
+
+.larger-input input {
+  width: 100%; /* ou qualquer largura desejada */
+}
+
+.campos-textos{
+  min-height: 6rem;
+  max-height: 10rem;
+}
 

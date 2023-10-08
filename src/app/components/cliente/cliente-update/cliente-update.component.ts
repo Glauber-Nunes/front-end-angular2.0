@@ -32,7 +32,9 @@ export class ClienteUpdateComponent implements OnInit {
       estado:'',
       cep:'',
       pais:'',
-    }
+    },
+
+    dataCadastro:null
   };
 
   constructor(private toast:ToastrService,private router:Router,private service : ClienteService,
@@ -61,7 +63,14 @@ export class ClienteUpdateComponent implements OnInit {
     this.service.update(this.cliente).subscribe((resposta=>{
     this.router.navigate(['clientes'])
     this.toast.info('Cliente Atualizado Com Sucesso!');
-  }))
+  }), err =>{
+    if(err.error.error.match('Ja Cadastrado')){
+      this.toast.error(err.error.error)
+      console.log(err)
+    }else{
+     
+    }
+  })
 }
 
 }

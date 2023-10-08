@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Cliente } from '../model/Cliente';
 import { API_CONFIG } from '../config/api.config';
 import { Observable } from 'rxjs';
+import { Url } from 'url';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,8 @@ export class ClienteService {
     return this.http.put<Cliente>(url,cliente);
   }
 
+  delete(id:any):Observable<void>{
+   const url = (`${API_CONFIG.baseUrlApi}/clientes/`+id);
+   return this.http.delete<void>(url)
+  }
 }

@@ -10,4 +10,5 @@ export interface Cliente{
     
     telefone:Telefone;
     endereco:Endereco;
+    dataCadastro:Date | null;
 }

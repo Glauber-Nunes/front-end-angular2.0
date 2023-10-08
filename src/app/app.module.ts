@@ -45,6 +45,7 @@ import { OrdemViewComponent } from './components/ordemServico/ordem-view/ordem-v
 import { MatRadioModule } from '@angular/material/radio';
 import { OrdemSaveComponent } from './components/ordemServico/ordem-save/ordem-save.component';
 import { FormControl } from '@angular/forms';
+import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { FormControl } from '@angular/forms';
     FornecedorUpdateComponent,
     OrdemListComponent,
     OrdemViewComponent,
-    OrdemSaveComponent
+    OrdemSaveComponent,
+    ClienteDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,9 +101,10 @@ import { FormControl } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut:4000,
       closeButton:true,
-      progressBar:true
+      timeOut:6000,
+      progressBar:true,
+      positionClass: 'toast-center', // Configuração para centralizar no meio
     }
     )
   ], 

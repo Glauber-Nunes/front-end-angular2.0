@@ -1,6 +1,10 @@
 <div class="container mat-elevation-z8">
 
-  <h2>Cliente</h2>
+  <h2>Dados Cliente: {{cliente.id}} </h2>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label class="color-disabled-black" >Data Do Cadastro:</mat-label>
+    <input disabled matInput [value]="cliente.dataCadastro | date:'dd/MM/yyyy HH:mm'" class="color-disabled-black">
+  </mat-form-field>
   <form class="form">
 
     <!-- INPUT NOME -->
@@ -39,7 +43,7 @@
         <mat-label class="color-disabled-black">Número:</mat-label>
         <input class="color-disabled-black" disabled="true" value="{{cliente.telefone.numero}}" disabled="true" matInput [(ngModel)]="cliente.telefone.numero" name="numero"  maxlength="11" max="11">
       </mat-form-field>
-    </div>
+     </div>
 
     <!-- Seção Endereço -->
     <div class="section-title">Dados de endereço</div>
@@ -84,12 +88,14 @@
         <mat-label class="color-disabled-black">País:</mat-label>
         <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.pais}}" matInput [(ngModel)]="cliente.endereco.pais" name="pais">
       </mat-form-field>
+
     </div>
 
   </form>
 
   <div class="button-container">
     <button (click)="voltar()" mat-raised-button color="primary">Voltar</button>
-</div>
+    <button (click)="delete()" mat-raised-button color="primary">Excluir</button>
+  </div>
 
 </div>

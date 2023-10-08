@@ -1,14 +1,15 @@
-<div class="container">
+<div class="container mat-elevation-z8">
+
+<h2>Ordem De Serviço</h2>
 
 <form class="form" name="myForm">
 
-    <h2>Ordem De Serviço</h2>
-    
     <!-- ATENDENTE -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Atendente</mat-label>
-      <mat-select name="atendente" [(ngModel)]= "ordem.atendente">
-        <mat-option *ngFor="let atendente of atendentes" [value]="atendente.id">
+      <mat-icon matSuffix>call</mat-icon>
+      <mat-select required="true" name="atendente" [(ngModel)]= "ordem.atendente">
+        <mat-option *ngFor="let atendente of atendentes" [value]="atendente">
           {{ atendente.nome }}
         </mat-option>
       </mat-select>
@@ -16,8 +17,9 @@
 
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Situação</mat-label>
+      <mat-icon matSuffix>warning</mat-icon>
       <mat-select name="situacaoOrdem" [(ngModel)]= "ordem.situacaoOrdem">
-        <mat-option *ngFor="let situacaoOrdem of situacoes" [value]="situacaoOrdem.id">
+        <mat-option *ngFor="let situacaoOrdem of situacoes" [value]="situacaoOrdem">
           {{ situacaoOrdem.nome }}
         </mat-option>
       </mat-select>
@@ -26,7 +28,7 @@
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Cliente</mat-label>
       <mat-select name="cliente" [(ngModel)]= "ordem.cliente">
-        <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+        <mat-option *ngFor="let cliente of clientes" [value]="cliente">
           {{ cliente.nome }}
         </mat-option>
       </mat-select>
@@ -36,14 +38,14 @@
       <mat-label>Tecnico</mat-label>
       <mat-icon matSuffix>engineering</mat-icon>
       <mat-select name="tecnico" [(ngModel)]= "ordem.tecnico">
-        <mat-option *ngFor="let tecnico of tecnicos" [value]="tecnico.id">
+        <mat-option *ngFor="let tecnico of tecnicos" [value]="tecnico">
           {{ tecnico.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
+
     <h3>Serviços</h3>
-    <!-- Selecione os Serviços -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione os Serviços</mat-label>
       <mat-select name="selectedServicoId" [(ngModel)]="selectedServicoId" multiple (selectionChange)="onServicoSelectionChange($event)">
@@ -53,14 +55,17 @@
       </mat-select>
     </mat-form-field>
     
-  <!-- Exibir campos de quantidade para serviços selecionados -->
-  <div *ngFor="let servicoSelecionado of ordem.servicos; let i = index" class="service-item">
-    <p>{{ servicoSelecionado.servico.descricao}}</p>
-    <mat-form-field class="quantity-field">
-      <mat-label>Qtd</mat-label>
-      <input matInput type="number" [(ngModel)]="servicoSelecionado.quantidade" />
-    </mat-form-field>
-  </div>
+    <!-- Exibir serviços selecionados -->
+    <div *ngIf="ordem.servicos.length > 0">
+      <h4>Serviços Selecionados:</h4>
+      <div *ngFor="let servicoSelecionado of servicosSelecionados; let i = index" class="service-item">
+        <p>{{ servicoSelecionado.servico_id.descricao }}</p>
+        <mat-form-field class="quantity-field">
+          <mat-label>Qtd {{ servicoSelecionado.servico_id.descricao }}: </mat-label>
+          <input matInput type="number" [(ngModel)]="servicoSelecionado.quantidade"/>
+        </mat-form-field>
+      </div>
+    </div>
 
    <!-- Selecione os Produtos -->
    <h3>Produtos</h3>
@@ -73,13 +78,16 @@
      </mat-select>
    </mat-form-field>
     
-   <!-- Exibir campos de quantidade para produtos selecionados -->
-   <div  *ngFor="let produtoSelecionado of ordem.produtos; let i = index" class="product-item">
-    <p>{{ produtoSelecionado.produto.descricao }}</p>
-    <mat-form-field class="quantity-field">
-      <mat-label>Qtd</mat-label>
-      <input matInput type="number" [(ngModel)]="produtoSelecionado.quantidade" />
-    </mat-form-field>
+    <!-- Exibir produtos selecionados -->
+  <div *ngIf="ordem.produtos.length > 0">
+    <h4>Produtos Selecionados:</h4>
+    <div *ngFor="let produtoSelecionado of produtosSelecionados; let i = index" class="product-item">
+      <p>{{ produtoSelecionado.produto_id.descricao }}</p>
+      <mat-form-field class="quantity-field">
+        <mat-label>Qtd</mat-label>
+        <input matInput type="number" [(ngModel)]="produtoSelecionado.quantidade" />
+      </mat-form-field>
+    </div>
   </div>
 
 
@@ -87,7 +95,7 @@
      <mat-form-field class="full-width" appearance="outline">
       <mat-label>Fornecedor</mat-label>
       <mat-select name="fornecedor" [(ngModel)]= "ordem.fornecedor">
-        <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+        <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor">
           {{ fornecedor.nome }}
         </mat-option>
       </mat-select>
@@ -95,21 +103,25 @@
 
     
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Observações da OS</mat-label>
+      <mat-label  >Observações da OS</mat-label>
+     
       <textarea class="campos-textos" [(ngModel)]="ordem.observacoes" name="observacoes" matInput placeholder=""></textarea>
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Descrição</mat-label>
+      <mat-label >Descrição</mat-label>
+      
       <textarea class="campos-textos" [(ngModel)]="ordem.descricao" name="descricao" matInput placeholder=""></textarea>
     </mat-form-field>
-
-    <div class="button-container">
-      <button type="submit" (click)="save()" mat-raised-button color="primary">Salvar</button>
-      <button  mat-raised-button color="primary">Cancelar</button>
-  </div>
-
 </form>
 
+<div class="button-container">
+  <button type="submit" (click)="save()" mat-raised-button color="primary">Salvar</button>
+  <button  mat-raised-button color="primary">Cancelar</button>
+</div>
 
 </div>
+
+<!-- Button to trigger the total calculation 
+<button type="button" (click)="calculateTotal()" mat-raised-button color="primary">Calcular Total</button>
+<p>Total da Ordem de Serviço: {{ ordem.valorTotalOrdem | currency:'BRL':'symbol':'1.2-2' }}</p> -->

@@ -1,6 +1,7 @@
+import { OrdemServico } from 'src/app/model/OrdemServico';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { OrdemServico } from '../model/OrdemServico';
+
 import { Observable } from 'rxjs';
 import { API_CONFIG } from '../config/api.config';
 
@@ -23,5 +24,11 @@ export class OrdemServicoService {
     const url =(`${API_CONFIG.baseUrlApi}/ordem_servicos`);
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<OrdemServico>(url, JSON.stringify(os), { headers: headers });
+  }
+
+  // funçao para finalizar serviço
+  finalizaServico(os:OrdemServico):Observable<OrdemServico>{
+    const url = (`${API_CONFIG.baseUrlApi}/ordem_servicos`); + os.id;
+    return this.http.put<OrdemServico>(url,os);
   }
 }

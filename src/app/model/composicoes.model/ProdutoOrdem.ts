@@ -3,7 +3,7 @@ import { Produto } from "../Produto";
 
 export interface ProdutoOrdem {
 
-  produto:Produto;
+  produto_id:Produto;
 
   quantidade: number;
   preco: number;
