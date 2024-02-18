@@ -1,0 +1,30 @@
+
+<div class="container mat-elevation-z8">
+
+    <h2>Cadastrando Tecnico</h2>
+    <form class="form">
+  
+      <!-- INPUT NOME -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input [formControl]="nome" required="true" matInput  [(ngModel)]="tecnico.nome" name="nome">
+        <mat-error *ngIf="formulario.get('nome').hasError('required')">
+            Informe o nome..
+          </mat-error>
+      </mat-form-field>
+
+    </form>
+
+    <div class="button-container">
+        <button (click)="save()" [disabled]="!validaCampos()"  mat-raised-button color="primary">
+          <span>Salvar</span>
+          <img src="assets/icons/update.png" >
+        </button>
+        <button (click)="cancelar()" mat-raised-button color="primary">
+          <span>Cancelar</span>
+          <img src="assets/icons/close.png">
+        </button>
+    </div>
+
+  </div>
+  

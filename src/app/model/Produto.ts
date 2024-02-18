@@ -9,5 +9,6 @@ export interface Produto{
     unEntrada:string;
     unSaida:string;
     estoque:number;
+    codigoNcm:String;
 }
 

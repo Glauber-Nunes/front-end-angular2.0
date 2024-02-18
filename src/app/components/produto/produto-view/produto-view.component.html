@@ -1,0 +1,67 @@
+<div class="container mat-elevation-z8">
+
+    <h2>Dados do produto</h2>
+    <form class="form">
+
+        <!-- INPUT DESCRIÇAO -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Descrição</mat-label>
+            <input disabled="true" matInput value="{{produto.descricao}}" class="color-disabled-black">
+        </mat-form-field>
+
+        <!-- INPUT PREÇO -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Preço</mat-label>
+            <input disabled="true" matInput value="{{produto.preco}}" class="color-disabled-black">
+        </mat-form-field>
+
+        <!-- INPUT CODEBARRAS -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Cod.. Barras</mat-label>
+            <input disabled="true" matInput value="{{produto.codeBarras}}" class="color-disabled-black">
+        </mat-form-field>
+
+        <!-- INPUT UNENTRADA -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>UN Entrada</mat-label>
+            <input disabled="true" matInput value="{{produto.unEntrada}}" class="color-disabled-black">
+        </mat-form-field>
+
+        <!-- INPUT UNSAIDA -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>UN Saida</mat-label>
+            <input disabled="true" matInput value="{{produto.unSaida}}" class="color-disabled-black">
+        </mat-form-field>
+
+        <!-- INPUT ESTOQUE -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Estoque</mat-label>
+            <input disabled="true" matInput value="{{produto.estoque}}" class="color-disabled-black">
+        </mat-form-field>
+
+        <!-- INPUT NCM -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Ncm</mat-label>
+            <input disabled="true" matInput value="{{produto.codigoNcm}}" class="color-disabled-black">
+        </mat-form-field>
+
+    </form>
+
+    <div class="button-container">
+        <a [routerLink]="['/atualizacao_produto', produto.id]">
+            <button mat-raised-button color="primary">
+              <span>Editar</span>
+              <img src="assets/icons/update.png">
+            </button>
+          </a>
+        <button (click)="openConfirmationDialog()" mat-raised-button color="primary">
+            <span>Excluir</span>
+            <img src="assets/icons/delete.png">
+        </button>
+        <button (click)="voltar()" mat-raised-button color="primary">
+            <span>Voltar</span>
+            <img src="assets/icons/back.png">
+        </button>
+    </div>
+
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/model/Usuario';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  usuario:Usuario={
+    id:null,
+    email:'',
+    nome:'',
+    senha:''
+  }
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  mostrarBotoes = false;
+
+  toggleButtons() {
+    this.mostrarBotoes = !this.mostrarBotoes;
+  }
 }

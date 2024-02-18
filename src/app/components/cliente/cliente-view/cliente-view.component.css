@@ -1,4 +1,3 @@
-/* cliente-save.component.css */
 
 .container {
   width: 85%;
@@ -21,7 +20,9 @@
 .section-title {
   font-size: 18px;
   margin-top: 16px;
-  width: 100%; /* Garante que a largura da seção seja 100% */
+  width: 100%;
+  background-color: #f0f0f0; /* Cor de fundo cinza */
+  padding: 8px; /* Adicione algum preenchimento para melhorar a aparência */
 }
 
 .button-container {
@@ -36,5 +37,12 @@
 .color-disabled-black {
   color: black;
 }
+
+button img {
+  margin-left: 5px; /* Ajuste o valor conforme necessário para a margem entre o texto e a imagem */
+  width: 15px; /* Ajuste a largura conforme necessário */
+  height: 15px; /* Ajuste a altura conforme necessário */
+}
+
 
 

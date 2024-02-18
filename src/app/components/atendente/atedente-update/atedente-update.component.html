@@ -1,1 +1,32 @@
-<p>atedente-update works!</p>
+<div class="container mat-elevation-z8">
+
+    <h2>Atualização Atendente</h2>
+    <form class="form">
+
+         <!-- INPUT NOME -->
+         <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input required="true" matInput  [(ngModel)]="atendente.nome" name="nome">
+            
+          </mat-form-field>
+    
+        <!-- INPUT CPF/CNPJ -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input [formControl]="cpf" required="true" matInput  [(ngModel)]="atendente.cpf" name="cpf">
+        </mat-form-field>
+    </form>
+
+    <div class="button-container">
+        <button [disabled]="!validaCampos()" (click)="update()" mat-raised-button color="primary">
+          <span>Atualizar</span>
+          <img src="assets/icons/save.png" >
+        </button>
+        <button (click)="cancelar()"  mat-raised-button color="primary">
+          <span>Cancelar</span>
+          <img src="assets/icons/close.png">
+        </button>
+    </div>
+
+  </div>
+  

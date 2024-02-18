@@ -29,16 +29,17 @@ export class OrdemListComponent implements OnInit {
       telefone:'',
       endereco:''
     },
-    descricao:null,
     tecnico:null,
     dataDoServico:null ,
     dataFechamento: null,
     servicos: [] ,
     produtos: [],
-    fornecedor: null,
     observacoes:null,
     statusOrdemServico : null,
     valorTotalOrdem:null,
+    SubTotalServico:null,
+    SubTotalProduto:null,
+    protocolo:''
   };
 
   ELEMENT_DATA : OrdemServico[] = [];
@@ -80,8 +81,10 @@ export class OrdemListComponent implements OnInit {
   getStatusColor(status: string): string {
     if (status === 'ABERTA') {
       return 'green-cell';
+    
     } else if (status === 'ENCERRADA') {
       return 'red-cell';
+   
     }
     return ''; // Retorna uma string vazia caso não haja correspondência
   }

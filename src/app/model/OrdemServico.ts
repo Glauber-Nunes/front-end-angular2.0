@@ -30,21 +30,20 @@ export interface OrdemServico{
         telefone:'',
         endereco:''
     } ;
-    descricao:string;
     tecnico:{
         nome:''
     };
     dataDoServico:Date | null; // Modificação feita aqui,
     dataFechamento:Date | null;
-    servicos:ServicoOrdem[];
-    produtos:ProdutoOrdem[];
-    fornecedor:{
-        nome:''
-    };
+    servicos:Servico[];
+    produtos: Produto[],
     observacoes:string;
     statusOrdemServico:{
         id:0,
         nome:''
     };
     valorTotalOrdem:number;
+    SubTotalServico:number;
+    SubTotalProduto:number;
+    protocolo:String;
 }

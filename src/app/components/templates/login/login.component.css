@@ -36,13 +36,11 @@
   }
   
   .button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    margin-top: 10px; /* Adjust the spacing as needed */
   }
   
+  /* Additional styling for the buttons if desired */
   .button button {
-    width: 100%;
+    width: 100%; /* Make the buttons take up the full width of the container */
   }
   

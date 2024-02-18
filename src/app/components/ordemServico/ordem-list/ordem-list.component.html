@@ -17,8 +17,8 @@
   
       <!-- Name Column -->
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Numero OS </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <th mat-header-cell *matHeaderCellDef> Protocolo Da OS </th>
+        <td mat-cell *matCellDef="let element"> {{element.protocolo}} </td>
       </ng-container>
 
      
@@ -30,7 +30,11 @@
       <ng-container matColumnDef="status">
         <th mat-header-cell class="fixed-column" *matHeaderCellDef> Status </th>
         <td mat-cell class="fixed-column" *matCellDef="let element" [ngClass]="getStatusColor(element.statusOrdemServico?.nome)">
-          {{element.statusOrdemServico.nome}}
+          {{element.statusOrdemServico.nome}} 
+          <!-- Para o status 'ABERTA' -->
+        <img *ngIf="element.statusOrdemServico.nome === 'ABERTA'"  src="assets/icons/check.png" alt="Status Image" class="green-cell">
+          <!-- Para o status 'ENCERRADA' -->
+        <img *ngIf="element.statusOrdemServico.nome === 'ENCERRADA'" src="assets/icons/closeOS.png" alt="Status Image" class="red-cell">
         </td>
       </ng-container>
 
@@ -49,13 +53,13 @@
           <th mat-header-cell *matHeaderCellDef> Editar </th>
           <td mat-cell *matCellDef="let element">
          
-            <a [routerLink]="['/', element.id]">
+            <a [routerLink]="['/updateOrdemServico', element.id]">
               <button mat-icon-button color="primary">
                 <mat-icon>edit</mat-icon>
               </button>
             </a>
           </ng-container>
-  
+
           <ng-container matColumnDef="excluir">
             <th mat-header-cell *matHeaderCellDef> Excluir </th>
             <td mat-cell *matCellDef="let element">
@@ -75,9 +79,11 @@
 
   <div class="button-container">
     <a  [routerLink]="['/saveOrdemServico']">
-      <button mat-icon-button color="primary">
-        <mat-icon>add</mat-icon> Nova OS
+      <button mat-raised-button color="primary">
+       <span>Nova OS</span>
+       <img src="assets/icons/plus.png">
       </button>
     </a>
   </div>
+  
   </div>

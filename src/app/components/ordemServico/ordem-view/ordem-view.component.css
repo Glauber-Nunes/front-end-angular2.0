@@ -11,7 +11,7 @@
 .form {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px; /* Espaço entre os campos */
+  gap: 3px; /* Espaço entre os campos */
 }
 
 .full-width {
@@ -32,17 +32,36 @@
 .button-container a {
   text-decoration: none; /* Remova a decoração de texto para os links */
 }
-
-.color-disabled-black {
-  color: black;
-}
-
-.larger-input input {
-  width: 100%; /* ou qualquer largura desejada */
+.text-negrito {
+  font-weight: bold;
 }
 
 .campos-textos{
   min-height: 6rem;
   max-height: 10rem;
+}
+
+.color-disabled-black {
+  color: black;
+}
+
+.section-title {
+font-size: 18px;
+margin-top: 16px;
+width: 100%;
+background-color: #f0f0f0; /* Cor de fundo cinza */
+padding: 8px; /* Adicione algum preenchimento para melhorar a aparência */
+}
+
+.loading-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Set a high z-index to make sure it's on top of other elements */
+  background-color: rgba(187, 182, 182, 0.8); /* Optional: add a semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 

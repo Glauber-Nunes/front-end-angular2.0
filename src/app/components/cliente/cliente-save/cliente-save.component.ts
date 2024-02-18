@@ -44,7 +44,7 @@ export class ClienteSaveComponent implements OnInit {
 
   constructor(private toast:ToastrService,private router:Router,private service : ClienteService,
     private fb: FormBuilder) {
-      this.formulario = this.fb.group({
+        this.formulario = this.fb.group({
         nome: ['', [Validators.required]]
       });
      }

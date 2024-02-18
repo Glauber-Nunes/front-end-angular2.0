@@ -19,11 +19,11 @@ export class AtendenteListComponent implements OnInit {
     this.findAll();
   }
 
-  displayedColumns: string[] = ['nome','visualizar','editar','excluir'];
+  displayedColumns: string[] = ['nome','visualizar','editar'];
   dataSource = new MatTableDataSource<Atendente>(this.ELEMENT_DATA);
 
   findAll(){
-    this.atendenteService.findAll().subscribe(resposta =>{
+      this.atendenteService.findAll().subscribe(resposta =>{
       this.ELEMENT_DATA = resposta;
       this.dataSource = new MatTableDataSource<Atendente>(resposta);
       this.dataSource.paginator = this.paginator;

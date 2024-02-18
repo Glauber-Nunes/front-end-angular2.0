@@ -1,0 +1,38 @@
+<div class="container mat-elevation-z8">
+
+    <h2>Dados do Serviço</h2>
+    <form class="form">
+
+        <!-- INPUT DESCRIÇAO -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Descrição</mat-label>
+            <input disabled="true" matInput value="{{servico.descricao}}" class="color-disabled-black">
+        </mat-form-field>
+
+        <!-- INPUT PREÇO -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Preço</mat-label>
+            <input disabled="true" matInput value="{{servico.preco}}" class="color-disabled-black">
+        </mat-form-field>
+
+    
+    </form>
+
+    <div class="button-container">
+        <a [routerLink]="['/atualizacao_servico', servico.id]">
+            <button mat-raised-button color="primary">
+              <span>Editar</span>
+              <img src="assets/icons/update.png">
+            </button>
+          </a>
+        <button (click)="openConfirmationDialog()" mat-raised-button color="primary">
+            <span>Excluir</span>
+            <img src="assets/icons/delete.png">
+        </button>
+        <button (click)="voltar()" mat-raised-button color="primary">
+            <span>Voltar</span>
+            <img src="assets/icons/back.png">
+        </button>
+    </div>
+
+</div>

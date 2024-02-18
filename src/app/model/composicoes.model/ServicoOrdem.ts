@@ -5,7 +5,7 @@ import { Servico } from "../Servico";
 
 export interface ServicoOrdem {
  
-  servico_id:Servico;
+  servico:Servico;
 
   quantidade: number;
   preco: number;

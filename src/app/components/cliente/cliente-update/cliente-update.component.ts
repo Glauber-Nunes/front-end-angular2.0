@@ -50,7 +50,6 @@ export class ClienteUpdateComponent implements OnInit {
   cancelar(){
     this.router.navigate(['clientes'])
   }
-
   
   findById():void{
     this.service.findById(this.id_cliente).subscribe((resposta=>{

@@ -19,6 +19,25 @@ table {
   margin-left: 115px;
 }
 
+.button-container a{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px; 
+  text-decoration: none;
+}
+
+button {
+  display: flex;
+  align-items: center;
+}
+
+button img {
+  margin-left: 5px; /* Ajuste o valor conforme necessário para a margem entre o texto e a imagem */
+  width: 20px; /* Ajuste a largura conforme necessário */
+  height: 20px; /* Ajuste a altura conforme necessário */
+}
+
+
 
 
   /* Estilize a div de telefone */

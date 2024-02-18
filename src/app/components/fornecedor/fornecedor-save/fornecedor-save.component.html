@@ -1,1 +1,49 @@
-<p>fornecedor-save works!</p>
+<div class="container mat-elevation-z8">
+
+    <h2>Cadastrando Fornecedor</h2>
+    <form class="form">
+  
+      <!-- INPUT NOME -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input [formControl]="nome" required="true" matInput  [(ngModel)]="fornecedor.nome" name="nome">
+      
+      </mat-form-field>
+  
+      <!-- INPUT municipio -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Municipio</mat-label>
+        <input [formControl]="municipio" required="true" matInput  [(ngModel)]="fornecedor.municipio" name="municipio">
+      </mat-form-field>
+
+      
+      <!-- Seu template HTML -->
+      <mat-form-field>
+      <mat-label>UF:</mat-label>
+      <mat-select required="true"  name="fornecedor.uf" [(ngModel)]= "fornecedor.uf">
+          <mat-option *ngFor="let state of ufs" [value]="state">{{state.uf}}</mat-option>
+      </mat-select>
+      </mat-form-field>
+      
+      <!-- INPUT cnpj -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>CNPJ:</mat-label>
+        <input [formControl]="cnpj" required="true" matInput  [(ngModel)]="fornecedor.cnpj" name="cnpj">
+      
+      </mat-form-field>
+
+    </form>
+
+    <div class="button-container">
+        <button [disabled]="!validaCampos()" (click)="save()" mat-raised-button color="primary">
+          <span>Salvar</span>
+          <img src="assets/icons/update.png" >
+        </button>
+        <button (click)="cancelar()"  mat-raised-button color="primary">
+          <span>Cancelar</span>
+          <img src="assets/icons/close.png">
+        </button>
+    </div>
+
+  </div>
+  

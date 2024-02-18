@@ -5,6 +5,7 @@
 <form class="form" name="myForm">
 
     <!-- ATENDENTE -->
+    
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Atendente</mat-label>
       <mat-icon matSuffix>call</mat-icon>
@@ -44,80 +45,58 @@
       </mat-select>
     </mat-form-field>
 
-
-    <h3>Serviços</h3>
-    <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Selecione os Serviços</mat-label>
-      <mat-select name="selectedServicoId" [(ngModel)]="selectedServicoId" multiple (selectionChange)="onServicoSelectionChange($event)">
-        <mat-option *ngFor="let servico of servs" [value]="servico.id">
-          {{ servico.descricao }}
-        </mat-option>
+    <div class="section-title">Serviços Prestados</div>
+     <!-- Servico Select -->
+     <mat-form-field>
+      <mat-label class="mat-selected-label">Selecionar Serviço<mat-icon matSuffix>build</mat-icon></mat-label>
+      <mat-select name="selectedServicoId" [(ngModel)]="selectedServicoId" multiple
+      (selectionChange)="onServicoSelectionChange($event)">
+        <mat-option *ngFor="let ser of servs" [value]="ser">{{ser.descricao}}</mat-option>
       </mat-select>
     </mat-form-field>
     
-    <!-- Exibir serviços selecionados -->
-    <div *ngIf="ordem.servicos.length > 0">
-      <h4>Serviços Selecionados:</h4>
-      <div *ngFor="let servicoSelecionado of servicosSelecionados; let i = index" class="service-item">
-        <p>{{ servicoSelecionado.servico_id.descricao }}</p>
-        <mat-form-field class="quantity-field">
-          <mat-label>Qtd {{ servicoSelecionado.servico_id.descricao }}: </mat-label>
-          <input matInput type="number" [(ngModel)]="servicoSelecionado.quantidade"/>
-        </mat-form-field>
-      </div>
-    </div>
-
-   <!-- Selecione os Produtos -->
-   <h3>Produtos</h3>
-   <mat-form-field class="full-width" appearance="outline">
-     <mat-label>Selecione os Produtos</mat-label>
-     <mat-select name="selectedProdutoId" [(ngModel)]="selectedProdutoId" multiple (selectionChange)="onProdutoSelectionChange($event)">
-       <mat-option *ngFor="let produto of prods" [value]="produto.id">
-         {{ produto.descricao }}
-       </mat-option>
-     </mat-select>
-   </mat-form-field>
-    
-    <!-- Exibir produtos selecionados -->
-  <div *ngIf="ordem.produtos.length > 0">
-    <h4>Produtos Selecionados:</h4>
-    <div *ngFor="let produtoSelecionado of produtosSelecionados; let i = index" class="product-item">
-      <p>{{ produtoSelecionado.produto_id.descricao }}</p>
-      <mat-form-field class="quantity-field">
-        <mat-label>Qtd</mat-label>
-        <input matInput type="number" [(ngModel)]="produtoSelecionado.quantidade" />
-      </mat-form-field>
-    </div>
-  </div>
-
-
-    <!-- FORNECEDOR -->
-     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Fornecedor</mat-label>
-      <mat-select name="fornecedor" [(ngModel)]= "ordem.fornecedor">
-        <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor">
-          {{ fornecedor.nome }}
-        </mat-option>
+    <div class="section-title">Peças Utilizadas</div>
+    <!-- Produto Select -->
+    <mat-form-field>
+      <mat-label class="mat-selected-label">Selecionar Peça<mat-icon matSuffix>inventory_2</mat-icon></mat-label>
+      <mat-select name="selectedProdutoId"  [(ngModel)]="selectedProdutoId" multiple 
+      (selectionChange)="onProdutoSelectionChange($event)">
+        <mat-option *ngFor="let prod of prods" [value]="prod">{{prod.descricao}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    
+    <div class="section-title">Informaçoes Complementares</div>
     <mat-form-field class="full-width" appearance="outline">
       <mat-label  >Observações da OS</mat-label>
-     
-      <textarea class="campos-textos" [(ngModel)]="ordem.observacoes" name="observacoes" matInput placeholder=""></textarea>
+      <textarea class="campos-textos" [(ngModel)]="ordem.observacoes" name="observacoes" matInput placeholder="">
+      </textarea>
+    </mat-form-field>
+
+    <div class="section-title"></div>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">Total Serviços:</mat-label>
+      <input disabled="true" matInput [value]="ordem.SubTotalServico | currency:'BRL':'symbol':'1.2-2'" class="color-disabled-black">
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label >Descrição</mat-label>
-      
-      <textarea class="campos-textos" [(ngModel)]="ordem.descricao" name="descricao" matInput placeholder=""></textarea>
+      <mat-label class="color-disabled-black">Total Produtos:</mat-label>
+      <input disabled="true" matInput [value]="ordem.SubTotalProduto | currency:'BRL':'symbol':'1.2-2'" class="color-disabled-black">
     </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">Total OS:</mat-label>
+      <input disabled="true" matInput [value]="calcularValorTotalOrdem() | currency:'BRL':'symbol':'1.2-2'" class="color-disabled-black">
+    </mat-form-field>
+    
 </form>
 
 <div class="button-container">
   <button type="submit" (click)="save()" mat-raised-button color="primary">Salvar</button>
-  <button  mat-raised-button color="primary">Cancelar</button>
+  <div class="loading-container" *ngIf="isServiceLoading">
+    <mat-spinner></mat-spinner>
+    <p>Salvando Ordem De Serviço. Aguarde...</p>
+  </div>
+  <button (click)="cancelar()"  mat-raised-button color="primary">Cancelar</button>
 </div>
 
 </div>

@@ -35,17 +35,6 @@
             </button>
           </a>
         </ng-container>
-
-        <ng-container matColumnDef="excluir">
-          <th mat-header-cell *matHeaderCellDef> Excluir </th>
-          <td mat-cell *matCellDef="let element">
-         
-            <a [routerLink]="['/', element.id]">
-              <button mat-icon-button color="primary">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </a>
-          </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
@@ -53,8 +42,9 @@
 
 <div class="button-container">
   <a [routerLink]="['/saveAtendente']">
-    <button mat-icon-button color="primary">
-      <mat-icon>add</mat-icon> Novo Atendente
+    <button mat-raised-button color="primary">
+      <span>Novo Atendente</span>
+      <img src="assets/icons/plus.png" >
     </button>
   </a>
 </div>

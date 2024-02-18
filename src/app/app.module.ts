@@ -44,8 +44,27 @@ import { OrdemListComponent } from './components/ordemServico/ordem-list/ordem-l
 import { OrdemViewComponent } from './components/ordemServico/ordem-view/ordem-view.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { OrdemSaveComponent } from './components/ordemServico/ordem-save/ordem-save.component';
-import { FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';   
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
+import { AtendenteReplicaComponent } from './components/atendente/atendente-replica/atendente-replica.component';
+import { UsuarioCreateComponent } from './components/usuario/usuario-create/usuario-create.component';
+import { ConfirmDialogComponent } from './components/ConfirmDialogComponent/ConfirmDialogComponent';
+import { MatDialogModule } from '@angular/material/dialog';
+import { OrdemUpdateComponent } from './components/ordemServico/ordem-update/ordem-update.component';
+import { ProdutoSaveComponent } from './components/produto/produto-save/produto-save.component';
+import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
+import { ProdutoViewComponent } from './components/produto/produto-view/produto-view.component';
+import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
+import { ServicoListComponent } from './components/servico/servico-list/servico-list.component';
+import { ServicoSaveComponent } from './components/servico/servico-save/servico-save.component';
+import { ServicoViewComponent } from './components/servico/servico-view/servico-view.component';
+import { ServicoUpdateComponent } from './components/servico/servico-update/servico-update.component';
+
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
+import { TecnicoSaveComponent } from './components/tecnico/tecnico-save/tecnico-save.component';
+import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,9 +88,25 @@ import { ClienteDeleteComponent } from './components/cliente/cliente-delete/clie
     OrdemViewComponent,
     OrdemSaveComponent,
     ClienteDeleteComponent,
+    AtendenteReplicaComponent,
+    ConfirmDialogComponent,
+    UsuarioCreateComponent,
+    OrdemUpdateComponent,
+    ProdutoSaveComponent,
+    ProdutoListComponent,
+    ProdutoViewComponent,
+    ProdutoUpdateComponent,
+    ServicoListComponent,
+    ServicoSaveComponent,
+    ServicoViewComponent,
+    ServicoUpdateComponent,
+    TecnicoListComponent,
+    TecnicoSaveComponent,
+    TecnicoUpdateComponent,
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -99,12 +134,13 @@ import { ClienteDeleteComponent } from './components/cliente/cliente-delete/clie
     MatProgressBarModule,
     MatRadioModule,
     FormsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       closeButton:true,
       timeOut:6000,
       progressBar:true,
-      positionClass: 'toast-center', // Configuração para centralizar no meio
     }
     )
   ], 

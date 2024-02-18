@@ -1,0 +1,42 @@
+/* cliente-save.component.css */
+
+.container {
+    width: 85%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+  }
+  
+  
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espaço entre os campos */
+  }
+  
+  .full-width {
+    flex: 1; /* Ocupa o espaço disponível */
+  }
+  
+  .section-title {
+    font-size: 18px;
+    margin-top: 16px;
+    width: 100%; /* Garante que a largura da seção seja 100% */
+  }
+  
+  .button-container {
+    display: flex; /* Use o modelo flexível para alinhar os botões lado a lado */
+    gap: 10px; /* Adicione um espaço de 10px entre os botões (ajuste conforme necessário) */
+  }
+  
+  .button-container a {
+    text-decoration: none; /* Remova a decoração de texto para os links */
+  }
+
+  button img {
+    margin-left: 5px; /* Ajuste o valor conforme necessário para a margem entre o texto e a imagem */
+    width: 20px; /* Ajuste a largura conforme necessário */
+    height: 20px; /* Ajuste a altura conforme necessário */
+  }
+  
+  

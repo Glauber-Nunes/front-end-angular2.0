@@ -1,34 +1,55 @@
-<mat-card>
-    <mat-card-title>Dados Do Fornecedor</mat-card-title>
-   
-    <div class="info-container">
+<div class="container mat-elevation-z8">
 
-        <div class="info-item">
-          <p>ID: {{ fornecedor.id }}</p>
-        </div>
+  <h2>Fornecedor</h2>
+  <form class="form">
+
+    <!-- INPUT NOME -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input disabled="true" matInput  [(ngModel)]="fornecedor.nome" name="nome"  class="color-disabled-black">
     
-        <div class="info-item">
-          <p>Nome: {{ fornecedor.nome }}</p>
-        </div>
+    </mat-form-field>
+
+    <!-- INPUT municipio -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Municipio</mat-label>
+      <input disabled="true" matInput  [(ngModel)]="fornecedor.municipio" name="municipio" class="color-disabled-black">
+    </mat-form-field>
+
     
-        <div class="info-item">
-          <p>Municipio: {{ fornecedor.municipio }}</p>
-        </div>
-        
-     
-      <div class="info-item">
-        <p>UF: {{ fornecedor.uf }}</p>
-      </div>
+    <!-- Seu template HTML -->
+    <mat-form-field>
+    <mat-label>UF:</mat-label>
+        <input disabled="true" matInput value="{{fornecedor.uf.uf}}" class="color-disabled-black">
+    </mat-form-field>
 
-      <div class="info-item">
-        <p>CNPJ: {{ fornecedor.cnpj }}</p>
-      </div>
-
-
-
-    </div>
-
-    </mat-card>
-  
-    <button (click)="fechar()" class="custom-button" mat-raised-button color="">Fechar</button>
     
+    <!-- INPUT cnpj -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>CNPJ:</mat-label>
+      <input disabled="true" matInput  [(ngModel)]="fornecedor.cnpj" name="cnpj"  class="color-disabled-black">
+    
+    </mat-form-field>
+
+  </form>
+
+  <div class="button-container">
+      <button (click)="voltar()" mat-raised-button color="primary">
+        <span>Voltar</span>
+        <img src="assets/icons/back.png">
+      </button>
+      <button (click)="openConfirmationDialog()"  mat-raised-button color="primary">
+        <span>Excluir</span>
+        <img src="assets/icons/delete.png">
+      </button>
+
+      <a [routerLink]="['/updateFornecedor', fornecedor.id]">
+        <button mat-raised-button color="primary">
+          <span>Editar</span>
+          <img src="assets/icons/update.png">
+        </button>
+      </a>
+  </div>
+
+</div>
+

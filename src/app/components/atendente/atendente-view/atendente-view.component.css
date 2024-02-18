@@ -1,24 +1,37 @@
-/* Estilize o mat-card para torná-lo maior e destacado */
-.mat-card {
-  width: 80%; /* Defina a largura desejada */
-  margin: 0 auto; /* Centralize horizontalmente */
-  padding: 20px; /* Adicione um espaçamento interno */
-  background-color: #f5f5f5; /* Cor de fundo do card */
-  border: 1px solid #ccc; /* Adicione uma borda */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adicione uma sombra */
-}
+/* cliente-save.component.css */
 
-/* Estilize os parágrafos dentro do mat-card para destacá-los */
-.mat-card p {
-  font-weight: bold; /* Deixa o texto em negrito */
-  margin-bottom: 10px; /* Adicione espaçamento inferior entre os parágrafos */
-}
-
-/* Estilize os botões */
-.custom-button {
-  margin: 20px auto; /* Adiciona margem ao redor do botão e alinha-o ao centro horizontalmente */
-  display: block; /* Para centralizar o botão horizontalmente no container */
-  margin-left: 97px;
+.container {
+  width: 85%;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
 }
 
 
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Espaço entre os campos */
+}
+
+.full-width {
+  flex: 1; /* Ocupa o espaço disponível */
+}
+
+.section-title {
+  font-size: 18px;
+  margin-top: 16px;
+  width: 100%; /* Garante que a largura da seção seja 100% */
+}
+
+.button-container {
+  display: flex; /* Use o modelo flexível para alinhar os botões lado a lado */
+  gap: 10px; /* Adicione um espaço de 10px entre os botões (ajuste conforme necessário) */
+}
+
+.button-container a {
+  text-decoration: none; /* Remova a decoração de texto para os links */
+}
+.color-disabled-black {
+  color: black;
+}

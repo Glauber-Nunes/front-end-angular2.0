@@ -1,0 +1,64 @@
+
+<div class="container mat-elevation-z8">
+
+    <h2>Atualizando Produto</h2>
+    <form class="form">
+  
+      <!-- INPUT DESCRIÇAO -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input [formControl]="descricao" required="true" matInput  [(ngModel)]="produto.descricao" name="descricao">
+        
+      </mat-form-field>
+  
+      <!-- INPUT PREÇO-->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Preço</mat-label>
+        <input type="number" [formControl]="preco" required="true" matInput  [(ngModel)]="produto.preco" name="preco | currency:'BRL':'symbol':'1.2-2'">
+     
+      </mat-form-field>
+
+       <!-- INPUT BARRAS-->
+       <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Codigo De Barras</mat-label>
+        <input matInput  [(ngModel)]="produto.codeBarras" name="codeBarras">
+      </mat-form-field>
+
+       <!-- INPUT UNENTRADA-->
+       <mat-form-field class="full-width" appearance="outline">
+        <mat-label>UN Entrada</mat-label>
+        <input matInput  [(ngModel)]="produto.unEntrada" name="unEntrada">
+      </mat-form-field>
+
+       <!-- INPUT UNSAIDA-->
+       <mat-form-field class="full-width" appearance="outline">
+        <mat-label>UN Saida</mat-label>
+        <input matInput  [(ngModel)]="produto.unSaida" name="unSaida">
+      </mat-form-field>
+
+       <!-- INPUT ESTOQUE-->
+       <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Estoque</mat-label>
+        <input type="number"  required="true" matInput  [(ngModel)]="produto.estoque" name="estoque">
+      </mat-form-field>
+
+        <!-- INPUT NCM-->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>NCM</mat-label>
+            <input matInput  [(ngModel)]="produto.codigoNcm" name="codigoNcm">
+          </mat-form-field>
+    </form>
+
+    <div class="button-container">
+        <button (click)="update()" mat-raised-button color="primary">
+          <span>Atualizar</span>
+          <img src="assets/icons/update.png" >
+        </button>
+        <button  mat-raised-button color="primary">
+          <span>Cancelar</span>
+          <img src="assets/icons/close.png">
+        </button>
+    </div>
+
+  </div>
+  

@@ -6,6 +6,7 @@ table {
   .container{
     width: 80%;
     margin: auto;
+    margin-bottom: 20px;
   }
 
   .mat-form-field{
@@ -19,14 +20,25 @@ table {
     margin-left: 115px;
   }
   
-  
-  .button-container {
-    display: flex; /* Use o modelo flexível para alinhar os botões lado a lado */
-    gap: 80px; /* Adicione um espaço de 10px entre os botões (ajuste conforme necessário) */
+  .button-container a{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px; 
+    text-decoration: none;
   }
   
-  .button-container a {
-    text-decoration: none; /* Remova a decoração de texto para os links */
+  button {
+    display: flex;
+    align-items: center;
   }
+  
+  button img {
+    margin-left: 5px; /* Ajuste o valor conforme necessário para a margem entre o texto e a imagem */
+    width: 20px; /* Ajuste a largura conforme necessário */
+    height: 20px; /* Ajuste a altura conforme necessário */
+  }
+  
+  
+  
   
 

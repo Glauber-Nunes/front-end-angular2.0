@@ -1,25 +1,28 @@
 <div class="container mat-elevation-z8">
-    <div class="login-imagem">
-      <img mat-card-image src="assets/img/senha.png" alt="Photo of a Shiba Inu">
-      <h2>Digite seu email e senha</h2>
-    </div>
-    <form class="form mat-elevation-z8">
-        <h2>Login Usuario</h2>
-      <mat-form-field class="full-width">
-        <mat-label>Email</mat-label>
-        <input [formControl]="email" required
-         [(ngModel)]="credencial.email" name="email" matInput placeholder="EX. usuario@gmail.com" value="">
-      </mat-form-field>
-      
-      <mat-form-field class="full-width">
-        <mat-label>Senha</mat-label>
-        <input [formControl]="senha" required
-        [(ngModel)]="credencial.senha" name="senha" type="password" matInput placeholder="EX. 124566" value="">
-      </mat-form-field>
-  
-      <div class="button">
-        <button (click)="logar()" [disabled]="!validaCampos()" class="mat-elevation-z8" mat-button color="primary">Acessar</button>
-      </div>
-    </form>
+  <div class="login-imagem">
+    <img mat-card-image src="assets/img/senha.png" alt="Photo of a Shiba Inu">
+    <h2>Digite seu email e senha</h2>
   </div>
-  
+  <form class="form mat-elevation-z8">
+    <h2>Login Usuario</h2>
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input [formControl]="email" required [(ngModel)]="credencial.email" name="email" matInput placeholder="EX. usuario@gmail.com" value="">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Senha</mat-label>
+      <input [formControl]="senha" required [(ngModel)]="credencial.senha" name="senha" type="password" matInput placeholder="EX. 124566" value="">
+    </mat-form-field>
+
+    <div class="button">
+      <button (click)="logar()" [disabled]="!validaCampos()" class="mat-elevation-z4" mat-button color="primary">Acessar</button>
+    </div>
+
+    <div class="button">
+      <a [routerLink]="['/usuarioCreate', ]">
+        <button class="mat-elevation-z4" mat-button color="primary">Criar Cadastro</button>
+      </a>
+    </div>
+  </form>
+</div>

@@ -13,4 +13,20 @@ export class TecnicoService {
   findAll() : Observable<Tecnico[]> {
     return this.http.get<Tecnico[]>(`${API_CONFIG.baseUrlApi}/tecnicos`)
   }
+
+  save(tecnico:Tecnico):Observable<Tecnico>{
+    const url =(`${API_CONFIG.baseUrlApi}/tecnicos`);
+    return this.http.post<Tecnico>(url,tecnico);
+  }
+
+  delete(id:any):Observable<void>{
+    const url = (`${API_CONFIG.baseUrlApi}/tecnicos/`+id);
+    return this.http.delete<void>(url)
+   }
+
+   
+  findById(id:any):Observable<Tecnico>{
+    return this.http.get<Tecnico>(`${API_CONFIG.baseUrlApi}/tecnicos/`+id)
+  }
+
 }

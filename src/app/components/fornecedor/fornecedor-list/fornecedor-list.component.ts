@@ -14,7 +14,7 @@ export class FornecedorListComponent implements OnInit {
 
   ELEMENT_DATA : Fornecedor[] = [];
 
-  displayedColumns: string[] = ['nome','visualizar','editar','excluir','novo'];
+  displayedColumns: string[] = ['nome','visualizar'];
   dataSource = new MatTableDataSource<Fornecedor>(this.ELEMENT_DATA);
 
 

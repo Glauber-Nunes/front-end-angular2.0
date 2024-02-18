@@ -6,6 +6,7 @@ table {
   .container{
     width: 80%;
     margin: auto;
+    margin-bottom: 20px;
   }
 
   .mat-form-field{
@@ -32,4 +33,18 @@ table {
     display: flex;
     justify-content: space-around;
     margin-bottom: 1rem;
+  }
+
+   
+  button img {
+    margin-left: 5px; /* Ajuste o valor conforme necessário para a margem entre o texto e a imagem */
+    width: 15px; /* Ajuste a largura conforme necessário */
+    height: 15px; /* Ajuste a altura conforme necessário */
+  }
+
+  .button-container a{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px; 
+    text-decoration: none;
   }

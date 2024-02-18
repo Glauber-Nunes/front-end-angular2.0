@@ -2,7 +2,6 @@
 
     <h2>Cadastrando Cliente</h2>
     <form class="form">
-  
       <!-- INPUT NOME -->
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Nome</mat-label>
@@ -11,7 +10,8 @@
           nome obrigatório.
         </mat-error>
       </mat-form-field>
-  
+
+     
       <!-- INPUT CPF/CNPJ -->
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>CPF/CNPJ</mat-label>
@@ -37,7 +37,7 @@
       </mat-form-field>
   
       <!-- Seção Telefone -->
-      <div class="section-title">Dados de Telefone</div>
+      <div class="section-title">Dados de Contato</div>
       <div class="phone-inputs">
         <mat-form-field appearance="outline">
           <mat-label>DD:</mat-label>
@@ -98,8 +98,14 @@
     </form>
 
     <div class="button-container">
-        <button [disabled]="!validaCampos()" (click)="save()" mat-raised-button color="primary">Salvar</button>
-        <button (click)="cancelar()" mat-raised-button color="primary">Cancelar</button>
+        <button [disabled]="!validaCampos()" (click)="save()" mat-raised-button color="primary">
+            <span>Salvar</span>
+            <img src="assets/icons/save.png" >
+        </button>
+        <button (click)="cancelar()" mat-raised-button color="primary">
+          <span>Cancelar</span>
+          <img src="assets/icons/close.png" >
+        </button>
     </div>
 
   </div>

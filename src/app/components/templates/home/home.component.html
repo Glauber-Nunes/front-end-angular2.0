@@ -1,9 +1,19 @@
-<mat-card class="card class mat-elevation-z8">
+<div class="usuarioCard">
+  <mat-card class="card class mat-elevation-z8">
     <mat-card-header>
       <div mat-card-avatar class=""></div>
-      <mat-card-title>G SISTEMAS</mat-card-title>
-      <mat-card-subtitle>@gsistemass</mat-card-subtitle>
+      <mat-card-title>
+        <mat-icon>person_outline</mat-icon> Meus Dados
+      </mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
     </mat-card-header>
-    <h3>
-      </h3>
+    <mat-card-content>
+      <p>NOME: {{ usuario.nome || 'ADMINISTRADOR' }}</p>
+      <p>EMAIL: {{ usuario.email || 'adm@gmail.com' }}</p>
+    </mat-card-content>
+    
   </mat-card>
+
+  
+</div>
+

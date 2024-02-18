@@ -1,22 +1,18 @@
 <div class="container mat-elevation-z8">
-
+  <p>Data Do Cadastro: {{ cliente.dataCadastro }}</p>
   <h2>Dados Cliente: {{cliente.id}} </h2>
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label class="color-disabled-black" >Data Do Cadastro:</mat-label>
-    <input disabled matInput [value]="cliente.dataCadastro | date:'dd/MM/yyyy HH:mm'" class="color-disabled-black">
-  </mat-form-field>
-  <form class="form">
 
+  <form class="form">
     <!-- INPUT NOME -->
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label class="color-disabled-black" >Nome</mat-label>
+      <mat-label class="color-disabled-black">Nome</mat-label>
       <input disabled="true" matInput value="{{cliente.nome}}" class="color-disabled-black">
     </mat-form-field>
 
     <!-- INPUT CPF/CNPJ -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label class="color-disabled-black">CPF/CNPJ</mat-label>
-      <input disabled="true" matInput value="{{cliente.cpf}}"class="color-disabled-black">
+      <input disabled="true" matInput value="{{cliente.cpf}}" class="color-disabled-black">
     </mat-form-field>
 
     <!-- INPUT RG -->
@@ -36,14 +32,16 @@
     <div class="phone-inputs">
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">DD:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.telefone.dd}}" matInput [(ngModel)]="cliente.telefone.dd" name="dd"  maxlength="2" max="2">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.telefone.dd}}" matInput
+          [(ngModel)]="cliente.telefone.dd" name="cliente.telefone.dd" maxlength="2" max="2">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Número:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.telefone.numero}}" disabled="true" matInput [(ngModel)]="cliente.telefone.numero" name="numero"  maxlength="11" max="11">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.telefone.numero}}" disabled="true" matInput
+          [(ngModel)]="cliente.telefone.numero" name="cliente.telefone.numero" maxlength="11" max="11">
       </mat-form-field>
-     </div>
+    </div>
 
     <!-- Seção Endereço -->
     <div class="section-title">Dados de endereço</div>
@@ -51,42 +49,50 @@
     <div class="address-inputs">
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Rua:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.rua}}" matInput [(ngModel)]="cliente.endereco.rua" name="rua">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.rua}}" matInput
+          [(ngModel)]="cliente.endereco.rua" name="rua">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Número:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.numero}}" matInput [(ngModel)]="cliente.endereco.numero" name="numero">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.numero}}" matInput
+          [(ngModel)]="cliente.endereco.numero" name="numero">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Complemento:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.complemento}}" matInput [(ngModel)]="cliente.endereco.complemento" name="complemento">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.complemento}}" matInput
+          [(ngModel)]="cliente.endereco.complemento" name="complemento">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Bairro:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.bairro}}" matInput [(ngModel)]="cliente.endereco.bairro" name="bairro">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.bairro}}" matInput
+          [(ngModel)]="cliente.endereco.bairro" name="bairro">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Cidade:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.cidade}}" matInput [(ngModel)]="cliente.endereco.cidade" name="cidade">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.cidade}}" matInput
+          [(ngModel)]="cliente.endereco.cidade" name="cidade">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Estado</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{cliente.endereco.estado}" matInput [(ngModel)]="cliente.endereco.estado" name="estado">
+        <input class="color-disabled-black" disabled="true" value="{cliente.endereco.estado}" matInput
+          [(ngModel)]="cliente.endereco.estado" name="estado">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">Cep:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.cep}}" matInput [(ngModel)]="cliente.endereco.cep" name="cep">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.cep}}" matInput
+          [(ngModel)]="cliente.endereco.cep" name="cep">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label class="color-disabled-black">País:</mat-label>
-        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.pais}}" matInput [(ngModel)]="cliente.endereco.pais" name="pais">
+        <input class="color-disabled-black" disabled="true" value="{{cliente.endereco.pais}}" matInput
+          [(ngModel)]="cliente.endereco.pais" name="pais">
       </mat-form-field>
 
     </div>
@@ -94,8 +100,24 @@
   </form>
 
   <div class="button-container">
-    <button (click)="voltar()" mat-raised-button color="primary">Voltar</button>
-    <button (click)="delete()" mat-raised-button color="primary">Excluir</button>
+
+    <a [routerLink]="['/alteracao_cliente', cliente.id]">
+      <button mat-raised-button color="primary">
+        <span>Editar</span>
+        <img src="assets/icons/update.png">
+      </button>
+    </a>
+
+    <button (click)="openConfirmationDialog()" mat-raised-button color="primary">
+      <span>Excluir</span>
+      <img src="assets/icons/delete.png">
+    </button>
+
+
+    <button (click)="voltar()" mat-raised-button color="primary">
+      <span>Voltar</span>
+      <img src="assets/icons/back.png">
+    </button>
   </div>
 
 </div>

@@ -18,4 +18,19 @@ export class ProdutoService {
   findById(id:any):Observable<Produto>{
     return this.http.get<Produto>(`${API_CONFIG.baseUrlApi}/produtos/`+id)
   }
+
+  save(produto:Produto):Observable<Produto>{
+    const url =(`${API_CONFIG.baseUrlApi}/produtos`);
+    return this.http.post<Produto>(url,produto);
+  }
+
+  delete(id:any):Observable<void>{
+    const url = (`${API_CONFIG.baseUrlApi}/produtos/`+id);
+    return this.http.delete<void>(url)
+   }
+
+   update(produto:Produto):Observable<Produto>{
+    const url = (`${API_CONFIG.baseUrlApi}/produtos/`+ produto.id) ;
+    return this.http.put<Produto>(url,produto);
+  }
 }

@@ -17,7 +17,7 @@ export class OrdemServicoService {
   }
 
   findById(id:any):Observable<OrdemServico>{
-    return this.http.get<OrdemServico>(`${API_CONFIG.baseUrlApi}/ordem_servicos/`+id)
+    return this.http.get<OrdemServico>(`${API_CONFIG.baseUrlApi}/ordem_servicos/`+id);
   }
 
   save(os:OrdemServico):Observable<OrdemServico>{
@@ -28,7 +28,7 @@ export class OrdemServicoService {
 
   // funçao para finalizar serviço
   finalizaServico(os:OrdemServico):Observable<OrdemServico>{
-    const url = (`${API_CONFIG.baseUrlApi}/ordem_servicos`); + os.id;
+    const url = (`${API_CONFIG.baseUrlApi}/ordem_servicos/finalizar-servico/`+ os.id);
     return this.http.put<OrdemServico>(url,os);
   }
 }

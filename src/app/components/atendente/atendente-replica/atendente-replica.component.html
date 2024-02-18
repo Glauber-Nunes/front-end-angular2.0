@@ -1,0 +1,35 @@
+<div class="container mat-elevation-z8">
+
+    <h2>Atendente</h2>
+    <form class="form">
+  
+    <!-- INPUT NOME -->
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input [formControl]="nome" required="true" matInput  [(ngModel)]="atendente.nome" name="nome">
+        <mat-error *ngIf="formulario.get('nome').hasError('required')">
+          nome obrigatório.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- INPUT CPF/CNPJ -->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>CPF/CNPJ</mat-label>
+        <input [formControl]="cpf" required="true" matInput  [(ngModel)]="atendente.cpf" name="cpf">
+        <mat-error *ngIf="formulario.get('nome').hasError('required')">
+          cpf obrigatório.
+        </mat-error>
+      </mat-form-field>
+  
+  
+    </form>
+  
+    <div class="button-container">
+      
+        <button [disabled]="!validaCampos()" (click)="save()" mat-raised-button color="primary">Salvar</button>
+   
+        <button (click)="cancelar()"  mat-raised-button color="primary">Voltar</button>
+    </div>
+  
+  </div>
+  

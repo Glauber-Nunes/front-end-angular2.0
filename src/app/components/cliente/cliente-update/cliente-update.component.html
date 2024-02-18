@@ -37,7 +37,7 @@
   
         <mat-form-field appearance="outline">
           <mat-label>Número:</mat-label>
-          <input required="true" matInput [(ngModel)]="cliente.telefone.numero" name="numero"  maxlength="11" max="11">
+          <input required="true" matInput [(ngModel)]="cliente.telefone.numero" name="cliente.telefone.numero"  maxlength="11" max="11">
         </mat-form-field>
       </div>
   
@@ -52,7 +52,7 @@
   
         <mat-form-field appearance="outline">
           <mat-label>Número:</mat-label>
-          <input matInput [(ngModel)]="cliente.endereco.numero" name="numero">
+          <input matInput [(ngModel)]="cliente.endereco.numero" name="cliente.endereco.numero">
         </mat-form-field>
   
         <mat-form-field appearance="outline">
@@ -89,8 +89,21 @@
     </form>
 
     <div class="button-container">
-        <button (click)="update()" mat-raised-button color="primary">Atualizar</button>
-        <button (click)=" cancelar()" mat-raised-button color="primary">Cancelar</button>
+        <button (click)="update()" mat-raised-button color="primary">
+          <span>Atualizar</span>
+          <img src="assets/icons/update.png">
+        </button>
+        <button (click)=" cancelar()" mat-raised-button color="primary">
+          <span>Cancelar</span>
+          <img src="assets/icons/close.png">
+        </button>
+        <a [routerLink]="['/visualizacao_cliente', cliente.id]">
+          <button mat-raised-button color="primary">
+            <span>Voltar</span>
+            <img src="assets/icons/back.png">
+          </button>
+        </a>
+        
     </div>
 
   </div>

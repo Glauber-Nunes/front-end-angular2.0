@@ -1,19 +1,33 @@
-<mat-card>
-  <mat-card-title>Dados Do Atendente</mat-card-title>
-    <div class="info-container">
-      <div class="info-item">
-        <p>ID: {{ atendente.id }}</p>
-      </div>
-  
-      <div class="info-item">
-        <p>Nome: {{ atendente.nome }}</p>
-      </div>
-  
-      <div class="info-item">
-        <p>CPF: {{ atendente.cpf }}</p>
-      </div>
-    </div>
-  </mat-card>
+<div class="container mat-elevation-z8">
 
-  <button (click)="fechar()" class="custom-button" mat-raised-button color="">Fechar</button>
-  
+  <h2>Atendente</h2>
+  <form class="form">
+
+    <!-- INPUT NOME -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">Nome</mat-label>
+      <input disabled="true" matInput value="{{atendente.nome}}" class="color-disabled-black">
+    </mat-form-field>
+
+    <!-- INPUT CPF/CNPJ -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label class="color-disabled-black">CPF</mat-label>
+      <input disabled="true" matInput value="{{atendente.cpf}}" class="color-disabled-black">
+    </mat-form-field>
+
+  </form>
+
+  <div class="button-container">
+    <a [routerLink]="['/atendentes/replica/', atendente.id]">
+      <button mat-raised-button color="primary">Replicar</button>
+    </a>
+      <button (click)="voltar()"  mat-raised-button color="primary">Voltar</button>
+
+      <button (click)="openConfirmationDialog()" mat-raised-button color="primary">
+        <span>Excluir</span>
+        <img src="assets/icons/delete.png" >
+      </button>
+      
+  </div>
+
+</div>
