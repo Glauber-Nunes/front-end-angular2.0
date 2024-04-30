@@ -11,6 +11,8 @@ export class AutenticacaoService {
 
   jwtService: JwtHelperService = new JwtHelperService();
 
+  usuarioLogado: any;
+
   constructor(private http: HttpClient) { }
 
   autenticacao(credencial : Credencial){
@@ -35,5 +37,14 @@ export class AutenticacaoService {
 
   sair(){
     localStorage.clear();
+  }
+
+  recuperarDadosUsuario() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      let decodedToken = this.jwtService.decodeToken(token);
+      this.usuarioLogado = decodedToken;
+      localStorage.setItem('usuario', JSON.stringify(decodedToken));
+    }
   }
 }

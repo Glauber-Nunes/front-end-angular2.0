@@ -1,19 +1,49 @@
-<div class="usuarioCard">
-  <mat-card class="card class mat-elevation-z8">
-    <mat-card-header>
-      <div mat-card-avatar class=""></div>
-      <mat-card-title>
-        <mat-icon>person_outline</mat-icon> Meus Dados
-      </mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>NOME: {{ usuario.nome || 'ADMINISTRADOR' }}</p>
-      <p>EMAIL: {{ usuario.email || 'adm@gmail.com' }}</p>
-    </mat-card-content>
-    
-  </mat-card>
+<div class="container">
+  <!-- Cartão de Clientes -->
+  <div class="usuarioCard" (click)="redirectToClientes()">
+    <mat-card class="card-class mat-elevation-z8">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar-background">
+          <mat-icon class="avatar-icon">person</mat-icon>
+        </div>
+        <mat-card-title class="card-title">Clientes</mat-card-title>
+        <mat-card-subtitle>Gerencie seus clientes</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="content-center">
+        <h1 class="client-count">{{ quantidadeClientes }}</h1>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-  
+  <!-- Cartão de Ordens de Serviço -->
+  <div class="usuarioCard" (click)="redirectToOs()">
+    <mat-card class="card-class mat-elevation-z8">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar-background">
+          <mat-icon class="avatar-icon">build</mat-icon>
+        </div>
+        <mat-card-title class="card-title">Ordens de Serviço</mat-card-title>
+        <mat-card-subtitle>Gerencie suas ordens de serviço</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="content-center">
+        <h1 class="client-count">{{ quantidadeOs }}</h1>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Cartão de Produtos Cadastrados -->
+  <div class="usuarioCard" (click)="redirectToProducts()">
+    <mat-card class="card-class mat-elevation-z8">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar-background">
+          <mat-icon class="avatar-icon">shopping_cart</mat-icon>
+        </div>
+        <mat-card-title class="card-title">Produtos Cadastrados</mat-card-title>
+        <mat-card-subtitle>Veja seus produtos cadastrados</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="content-center">
+        <h1 class="client-count">{{ quantidadeProdutos }}</h1>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-

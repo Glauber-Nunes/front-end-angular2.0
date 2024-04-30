@@ -33,4 +33,8 @@ export class ProdutoService {
     const url = (`${API_CONFIG.baseUrlApi}/produtos/`+ produto.id) ;
     return this.http.put<Produto>(url,produto);
   }
+
+  countProduto(): Observable<number> {
+    return this.http.get<number>(`${API_CONFIG.baseUrlApi}/produtos/count`);
+  }
 }

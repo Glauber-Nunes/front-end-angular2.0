@@ -31,4 +31,8 @@ export class OrdemServicoService {
     const url = (`${API_CONFIG.baseUrlApi}/ordem_servicos/finalizar-servico/`+ os.id);
     return this.http.put<OrdemServico>(url,os);
   }
+
+  countOrdemServico(): Observable<number> {
+    return this.http.get<number>(`${API_CONFIG.baseUrlApi}/ordem_servicos/count`);
+  }
 }

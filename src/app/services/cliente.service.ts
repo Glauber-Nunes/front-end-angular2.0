@@ -35,4 +35,8 @@ export class ClienteService {
    const url = (`${API_CONFIG.baseUrlApi}/clientes/`+id);
    return this.http.delete<void>(url)
   }
+
+  countCliente(): Observable<number> {
+    return this.http.get<number>(`${API_CONFIG.baseUrlApi}/clientes/count`);
+  }
 }
